@@ -49,24 +49,34 @@ def auth_session(test_user):
     return session
 
 @pytest.fixture(scope="function")
-def register_user(test_user):
+def register_user():
+    # на каждый тест генерируем нового пользователя
+    password = DataGenerator.generate_random_password()
+    user_data = {
+        "email": DataGenerator.generate_random_email(),
+        "fullName": DataGenerator.generate_random_name(),
+        "password": password,
+        "passwordRepeat": password,
+        "roles": ["USER"],
+    }
     # Регистрируем нового пользователя
     register_url = f"{BASE_URL}{REGISTER_ENDPOINT}"
-    response = requests.post(register_url, json=test_user, headers=HEADERS)
+    response = requests.post(register_url, json=user_data, headers=HEADERS)
+    print("REGISTER status:", response.status_code, "body:", response.text)
     assert response.status_code == 201, "Ошибка регистрации пользователя"
     user_id = response.json()["id"]
 
     # Получаем токен для удаления пользователя
     login_response = requests.post(
         f"{BASE_URL}{LOGIN_ENDPOINT}",
-        json={"email": test_user["email"], "password": test_user["password"]},
+        json={"email": user_data["email"], "password": user_data["password"]},
         headers=HEADERS
     )
     assert login_response.status_code in [200, 201]
     token = login_response.json()["accessToken"]
 
     # Передаем данные для теста на авторизацию
-    yield {"email": test_user["email"], "password": test_user["password"]}
+    yield {"email": user_data["email"], "password": user_data["password"]}
 
     # Удаляем созданного пользователя и чистим бд
     auth_headers = {**HEADERS, "Authorization": f"Bearer {token}"}
