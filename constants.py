@@ -7,3 +7,4 @@ HEADERS = {
 LOGIN_ENDPOINT = "/login"
 REGISTER_ENDPOINT = "/register"
 DELETE_USER_ENDPOINT = "/user/"
+LOGOUT_USER = "/logout/"
