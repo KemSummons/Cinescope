@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -7,6 +7,19 @@ __pycache__/
 .venv/
 venv/
 
-# IDE
+# IDE / OS
 .idea/
 .vscode/
+.DS_Store
+
+# Logs, local artifacts
+*.log
+
+# Env with secrets
+.env
+*.env
+
+# Если точно не нужны в репо:
+# *.db
+# *.csv
+# *.xlsx

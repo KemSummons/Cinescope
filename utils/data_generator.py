@@ -40,3 +40,15 @@ class DataGenerator:
         random.shuffle(password)
 
         return ''.join(password)
+
+    @staticmethod
+    def generate_random_movie():
+        return {
+            "name": faker.catch_phrase(),  # "Удивительный мир приключений"
+            "imageUrl": faker.image_url(width=400, height=600),  # случайная картинка
+            "price": random.randint(50, 500),  # 50-500 руб
+            "description": faker.text(max_nb_chars=200)[:200],  # 200 символов текста
+            "location": random.choice(['SPB', 'MSK']),
+            "published": random.choice([True, False]),  # 50/50
+            "genreId": random.randint(1, 10),  # ID жанра 1-10
+        }

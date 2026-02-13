@@ -1,4 +1,5 @@
 from clients.auth_api import AuthAPI
+from clients.movie_api import MovieAPI
 from clients.user_api import UserAPI
 
 class ApiManager:
@@ -15,3 +16,4 @@ class ApiManager:
         self.base_url = base_url
         self.auth_api = AuthAPI(session)
         self.user_api = UserAPI(session, base_url)
+        self.movie_api = MovieAPI(session)
