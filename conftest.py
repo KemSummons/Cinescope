@@ -55,16 +55,31 @@ def super_admin_data(session):
     }
     session.headers.pop("Authorization", None)
 
-@pytest.fixture(scope="function")
-def create_new_movie(api_manager: ApiManager, super_admin_data, test_movie):
-    """
-    Фикстура для получения админских прав и создание нового фильма
-    """
+@pytest.fixture(scope='function')
+def authenticated_admin(api_manager: ApiManager, super_admin_data):
     api_manager.auth_api.authenticate_user(super_admin_data)
+
+@pytest.fixture(scope="function")
+def create_new_movie(api_manager: ApiManager, authenticated_admin, test_movie):
+    """
+    Фикстура для получения админских прав и создание нового фильма с teardown
+    """
+    create_response = api_manager.movie_api.create_movie(test_movie, expected_status=201)
+    create_response_data = create_response.json()
+    yield create_response_data
+    movie_id = create_response_data.get("id")
+    if movie_id is not None:
+        api_manager.movie_api.delete_movie(movie_id, expected_status=200)
+        api_manager.movie_api.get_movie(movie_id, expected_status=404)
+
+@pytest.fixture(scope="function")
+def create_new_movie_without_teardown(api_manager: ApiManager, authenticated_admin, test_movie):
+    """
+    Фикстура для получения админских прав и создание нового фильма без teardown
+    """
     create_response = api_manager.movie_api.create_movie(test_movie, expected_status=201)
     create_response_data = create_response.json()
     return create_response_data
-
 
 @pytest.fixture(scope="function")
 def registered_user(api_manager: ApiManager, test_user):
@@ -76,15 +91,6 @@ def registered_user(api_manager: ApiManager, test_user):
     registered_user = test_user.copy()
     registered_user["id"] = response_data["id"]
     return registered_user
-
-# @pytest.fixture(scope="session")
-
-@pytest.fixture(scope="session")
-def requester(session):
-    """
-    Фикстура для создания экземпляра CustomRequester.
-    """
-    return CustomRequester(session=session, base_url=BASE_URL)
 
 @pytest.fixture(scope='session')
 def session():

@@ -20,8 +20,7 @@ class MovieAPI(CustomRequester):
             method="GET",
             endpoint=GET_OR_POST_MOVIES,
             params=params,
-            expected_status=expected_status,
-            need_logging=True
+            expected_status=expected_status
         )
 
     def get_movie(self, movie_id, expected_status=200):
@@ -33,8 +32,7 @@ class MovieAPI(CustomRequester):
         return self.send_request(
             method="GET",
             endpoint=GET_OR_DELETE_OR_PATCH_MOVIES.format(id=movie_id),
-            expected_status=expected_status,
-            need_logging=True
+            expected_status=expected_status
         )
 
     def create_movie(self, movie_data, expected_status=201):
@@ -47,8 +45,7 @@ class MovieAPI(CustomRequester):
             method="POST",
             endpoint=GET_OR_POST_MOVIES,
             data=movie_data,
-            expected_status=expected_status,
-            need_logging=True
+            expected_status=expected_status
         )
 
     def delete_movie(self, movie_id, expected_status=200):
@@ -60,8 +57,7 @@ class MovieAPI(CustomRequester):
         return self.send_request(
             method="DELETE",
             endpoint=GET_OR_DELETE_OR_PATCH_MOVIES.format(id=movie_id),
-            expected_status=expected_status,
-            need_logging=True
+            expected_status=expected_status
         )
 
     def update_movie(self, movie_id, movie_data, expected_status=200):
@@ -75,6 +71,5 @@ class MovieAPI(CustomRequester):
             method="PATCH",
             endpoint=GET_OR_DELETE_OR_PATCH_MOVIES.format(id=movie_id),
             data=movie_data,
-            expected_status=expected_status,
-            need_logging=True
+            expected_status=expected_status
         )

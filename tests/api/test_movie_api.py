@@ -100,13 +100,13 @@ class TestMovieAPI:
         assert update_response_data["rating"] == create_new_movie["rating"], '"rating" не должно обновляться'
         assert update_response_data["createdAt"] == create_new_movie["createdAt"], '"createdAt" не должно обновляться'
 
-    def test_delete_movie(self, api_manager: ApiManager, create_new_movie):
+    def test_delete_movie(self, api_manager: ApiManager, create_new_movie_without_teardown):
         """
         Удаление фильма
         """
-        movie_id = create_new_movie["id"]
-        delete_response = api_manager.movie_api.delete_movie(movie_id=movie_id, expected_status=200)
-        deleted_movie_response = api_manager.movie_api.get_movie(movie_id=movie_id, expected_status=404)
+        movie_id = create_new_movie_without_teardown["id"]
+        api_manager.movie_api.delete_movie(movie_id=movie_id, expected_status=200)
+        api_manager.movie_api.get_movie(movie_id=movie_id, expected_status=404)
 
 
 class TestNegativeMovieAPI:
@@ -121,20 +121,18 @@ class TestNegativeMovieAPI:
         create_response_data = create_response.json()
         assert "message" in create_response_data, "в ответе об ошибке должно быть поле message"
 
-    def test_invalid_body_creation(self, api_manager: ApiManager, super_admin_data):
+    def test_invalid_body_creation(self, api_manager: ApiManager, authenticated_admin):
         """
         Создание фильма без тела
         """
-        api_manager.auth_api.authenticate_user(super_admin_data)
         create_response = api_manager.movie_api.create_movie(movie_data=None, expected_status=400)
         create_response_data = create_response.json()
         assert "message" in create_response_data, "в ответе об ошибке должно быть поле message"
 
-    def test_non_full_body_creation(self, api_manager: ApiManager, super_admin_data):
+    def test_non_full_body_creation(self, api_manager: ApiManager, authenticated_admin):
         """
         Создание фильма с неполным телом
         """
-        api_manager.auth_api.authenticate_user(super_admin_data)
         create_response = api_manager.movie_api.create_movie(movie_data={"name": "error name"}, expected_status=400)
         create_response_data = create_response.json()
         assert "message" in create_response_data, "в ответе об ошибке должно быть поле message"
@@ -181,11 +179,10 @@ class TestNegativeMovieAPI:
         update_response_data = update_response.json()
         assert "message" in update_response_data, "в ответе об ошибке должно быть поле message"
 
-    def test_update_non_existent_movie(self, api_manager: ApiManager, update_movie_data, super_admin_data):
+    def test_update_non_existent_movie(self, api_manager: ApiManager, update_movie_data, authenticated_admin):
         """
         Обновление информации о несуществующем фильме
         """
-        api_manager.auth_api.authenticate_user(super_admin_data)
         update_response = api_manager.movie_api.update_movie(
             movie_id=999999999,
             movie_data=update_movie_data,
@@ -202,11 +199,10 @@ class TestNegativeMovieAPI:
         delete_response_data = delete_response.json()
         assert "message" in delete_response_data, "в ответе об ошибке должно быть поле message"
 
-    def test_delete_non_existent_movie(self, api_manager: ApiManager, super_admin_data):
+    def test_delete_non_existent_movie(self, api_manager: ApiManager, authenticated_admin):
         """
         Удаление несуществующего фильма
         """
-        api_manager.auth_api.authenticate_user(super_admin_data)
         delete_response = api_manager.movie_api.delete_movie(movie_id=999999999, expected_status=404)
         delete_response_data = delete_response.json()
         assert "message" in delete_response_data, "в ответе об ошибке должно быть поле message"
