@@ -193,3 +193,38 @@ def create_admin_user(user_session, super_admin, creation_user_factory):
     user_id = response_data.json()['id']
     if user_id is not None:
         super_admin.api.user_api.delete_user(user_id, expected_status=200)
+
+@pytest.fixture
+def create_user_with_any_role(user_session, super_admin, creation_user_factory):
+    created_ids = []
+
+    def _make(role: Roles = Roles.USER) -> User:
+        new_session = user_session()
+        new_data = creation_user_factory(role=role).copy()
+        user = User(
+            new_data["email"],
+            new_data["password"],
+            new_data["roles"],
+            new_session,
+        )
+        response = super_admin.api.user_api.create_user(new_data)
+        user_id = response.json()["id"]
+        created_ids.append(user_id)
+
+        if role == Roles.ADMIN:
+            super_admin.api.user_api.update_user(
+                user_id, {"roles": ["USER", "ADMIN"]}, expected_status=200
+            )
+
+        if role == Roles.SUPER_ADMIN:
+            super_admin.api.user_api.update_user(
+                user_id, {"roles": ["USER", "ADMIN", "SUPER_ADMIN"]}, expected_status=200
+            )
+
+        user.api.auth_api.authenticate_user(user.creds)
+        return user
+
+    yield _make
+
+    for uid in reversed(created_ids):
+        super_admin.api.user_api.delete_user(uid, expected_status=200)
