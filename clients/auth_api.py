@@ -35,7 +35,7 @@ class AuthAPI(CustomRequester):
 
     def authenticate_user(self, user_creds):
         login_data = {
-            "email": user_creds["username"],
+            "email": user_creds["email"],
             "password": user_creds["password"]
         }
         response = self.login_user(login_data).json()
@@ -43,16 +43,19 @@ class AuthAPI(CustomRequester):
             raise KeyError("token is missing")
 
         token = response["accessToken"]
-        self._update_session_headers(**{"authorization": "Bearer " + token})
+        self._update_session_headers(**{"Authorization": "Bearer " + token})
 
     def logout_user(self, expected_status=200):
         """
         Логаут пользователя.
         :param expected_status: Ожидаемый статус-код.
         """
-        return self.send_request(
+        response = self.send_request(
             method="GET",
             endpoint=LOGOUT_USER,
             expected_status=expected_status,
             need_logging=True
         )
+
+        self.session.headers.pop("Authorization", None)
+        return response

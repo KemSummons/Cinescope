@@ -21,6 +21,17 @@ class UserAPI(CustomRequester):
             expected_status=expected_status
         )
 
+    def get_users(self, expected_status=200):
+        """
+        Получение списка пользователей.
+        :param expected_status: Ожидаемый статус-код.
+        """
+        return self.send_request(
+            method="GET",
+            endpoint=f"/user",
+            expected_status=expected_status
+        )
+
     def delete_user(self, user_id, expected_status=204):
         """
         Удаление пользователя.

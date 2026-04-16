@@ -80,7 +80,7 @@ def created_booking(requester, booking_data):
 @pytest.fixture(scope='function')
 def get_token(requester):
     """Получение токена"""
-    login_data = {"username" : "admin", "password" : "password123"}
+    login_data = {"email" : "admin", "password" : "password123"}
     response = requester.send_request(
         method="POST",
         endpoint=CREATE_TOKEN_ENDPOINT,

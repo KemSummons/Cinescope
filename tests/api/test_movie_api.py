@@ -147,9 +147,9 @@ class TestMovieAPI:
         'user_role', [Roles.USER, Roles.ADMIN, Roles.SUPER_ADMIN],
         ids=["Role: USER", "Role: ADMIN", "Role: SUPER_ADMIN"]
     )
-    def test_delete_movie_all_roles(self, create_new_movie_without_teardown, create_user_with_any_role, user_role):
+    def test_delete_movie_all_roles(self, create_new_movie, create_user_with_any_role, user_role):
         user = create_user_with_any_role(role=user_role)
-        movie_id = create_new_movie_without_teardown['id']
+        movie_id = create_new_movie['id']
         user.api.movie_api.delete_movie(movie_id=movie_id, expected_status=(200 if user_role == Roles.SUPER_ADMIN else 403))
 
 class TestNegativeMovieAPI:

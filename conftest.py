@@ -11,7 +11,7 @@ def user_factory():
     """
     Фикстура для генерации случайного пользователя для тестов с нужной ролью.
     """
-    def create_user(role=Roles.USER):
+    def create_user(role=Roles.USER, verified=True, banned=False):
         random_email = DataGenerator.generate_random_email()
         random_name = DataGenerator.generate_random_name()
         random_password = DataGenerator.generate_random_password()
@@ -21,7 +21,9 @@ def user_factory():
             "fullName": random_name,
             "password": random_password,
             "passwordRepeat": random_password,
-            "roles": get_roles(role)
+            "roles": get_roles(role),
+            "verified": verified,
+            "banned": banned
         }
     return create_user
 
@@ -52,27 +54,29 @@ def super_admin_data(session):
     Фикстура для админских кредов для создания, удаления и обновления информации о фильмах
     """
     yield {
-        "username": SuperAdminCreds.USERNAME,
+        "email": SuperAdminCreds.USERNAME,
         "password": SuperAdminCreds.PASSWORD
     }
     session.headers.pop("Authorization", None)
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def authenticated_admin(api_manager: ApiManager, super_admin_data):
     api_manager.auth_api.authenticate_user(super_admin_data)
     return api_manager
 
 @pytest.fixture(scope="function")
-def create_new_movie(authenticated_admin, test_movie):
+def create_new_movie(test_movie, authenticated_admin):
     """
     Фикстура для получения админских прав и создание нового фильма с teardown
     """
     create_response = authenticated_admin.movie_api.create_movie(test_movie, expected_status=201)
     create_response_data = create_response.json()
+
     yield create_response_data
+
     movie_id = create_response_data.get("id")
     if movie_id is not None:
-        authenticated_admin.movie_api.delete_movie(movie_id, expected_status=200)
+        authenticated_admin.movie_api.delete_movie(movie_id=movie_id, expected_status=(200, 404))
 
 @pytest.fixture(scope="function")
 def create_new_movie_without_teardown(authenticated_admin, test_movie):
@@ -84,15 +88,28 @@ def create_new_movie_without_teardown(authenticated_admin, test_movie):
     return create_response_data
 
 @pytest.fixture(scope="function")
-def registered_user(api_manager: ApiManager, user_factory):
+def registered_user(authenticated_admin, user_factory):
     """
     Фикстура для регистрации и получения данных зарегистрированного пользователя.
     """
-    response = api_manager.auth_api.register_user(user_factory(Roles.USER.value), expected_status=201)
+    user_data = user_factory()
+    response = authenticated_admin.auth_api.register_user(user_data, expected_status=201)
     response_data = response.json()
-    registered_user = user_factory(Roles.USER.value).copy()
-    registered_user["id"] = response_data["id"]
-    return registered_user
+    response_data["password"] = user_data["password"]
+
+    yield response_data
+
+    if response_data['id'] is not None:
+        authenticated_admin.user_api.delete_user(response_data['id'], expected_status=200)
+
+@pytest.fixture(scope="function")
+def registered_and_logged_user(authenticated_admin, registered_user):
+    new_user = authenticated_admin.auth_api.login_user(login_data={
+        'email': registered_user['email'],
+        'password': registered_user['password']})
+    user_data = new_user.json()
+
+    return user_data
 
 @pytest.fixture(scope='session')
 def session():
@@ -139,23 +156,10 @@ def super_admin(user_session):
     super_admin.api.auth_api.authenticate_user(super_admin.creds)
     return super_admin
 
-@pytest.fixture(scope="function")
-def creation_user_factory(user_factory):
-    def creation_user_data(role=Roles.USER):
-        data = user_factory(role=role)
-        updated_data = data.copy()
-        updated_data.update({
-            "verified": True,
-            "banned": False
-        })
-        return updated_data
-
-    return creation_user_data
-
 @pytest.fixture(scope='function')
-def create_common_user(user_session, super_admin, creation_user_factory):
+def create_common_user(user_session, super_admin, user_factory):
     new_session = user_session()
-    new_data = creation_user_factory().copy()
+    new_data = user_factory().copy()
     common_user = User(
         new_data['email'],
         new_data['password'],
@@ -173,9 +177,9 @@ def create_common_user(user_session, super_admin, creation_user_factory):
         super_admin.api.user_api.delete_user(user_id, expected_status=200)
 
 @pytest.fixture(scope='function')
-def create_admin_user(user_session, super_admin, creation_user_factory):
+def create_admin_user(user_session, super_admin, user_factory):
     new_session = user_session()
-    new_data = creation_user_factory(role=Roles.ADMIN).copy()
+    new_data = user_factory(role=Roles.ADMIN).copy()
     admin_user = User(
         new_data['email'],
         new_data['password'],
@@ -195,12 +199,12 @@ def create_admin_user(user_session, super_admin, creation_user_factory):
         super_admin.api.user_api.delete_user(user_id, expected_status=200)
 
 @pytest.fixture
-def create_user_with_any_role(user_session, super_admin, creation_user_factory):
+def create_user_with_any_role(user_session, super_admin, user_factory):
     created_ids = []
 
     def _make(role: Roles = Roles.USER) -> User:
         new_session = user_session()
-        new_data = creation_user_factory(role=role).copy()
+        new_data = user_factory(role=role).copy()
         user = User(
             new_data["email"],
             new_data["password"],
@@ -228,3 +232,7 @@ def create_user_with_any_role(user_session, super_admin, creation_user_factory):
 
     for uid in reversed(created_ids):
         super_admin.api.user_api.delete_user(uid, expected_status=200)
+
+@pytest.fixture()
+def admin_delete_movie(super_admin, movie_id):
+    super_admin.api.movie_api.delete_movie(movie_id=movie_id)

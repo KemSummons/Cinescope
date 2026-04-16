@@ -10,4 +10,4 @@ class User:
     @property
     def creds(self):
         """Возвращает кортеж (email, password)"""
-        return {"username": self.email, "password": self.password}
+        return {"email": self.email, "password": self.password}

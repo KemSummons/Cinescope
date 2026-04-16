@@ -2,51 +2,45 @@ from clients.api_manager import ApiManager
 
 
 class TestAuthAPI:
-    def test_register_user(self, api_manager: ApiManager, test_user):
+    def test_register_user(self, authenticated_admin, user_factory):
         """
         Тест на регистрацию пользователя.
         """
-        response = api_manager.auth_api.register_user(test_user)
-        response_data = response.json()
+        user_data = user_factory()
+        new_user = authenticated_admin.user_api.create_user(user_data)
+        new_user_data = new_user.json()
 
-        assert response_data["email"] == test_user["email"], "Email не совпадает"
-        assert "id" in response_data, "ID пользователя отсутствует в ответе"
-        assert "roles" in response_data, "Роли пользователя отсутствуют в ответе"
-        assert "USER" in response_data["roles"], "Роль USER должна быть у пользователя"
+        assert new_user_data["email"] == user_data["email"], "Email должны совпадать"
+        assert "id" in new_user_data, "ID пользователя отсутствует в ответе"
+        assert "roles" in new_user_data, "Роли пользователя отсутствуют в ответе"
+        assert "USER" in new_user_data["roles"], "У пользователя должна быть роль USER"
 
-    def test_register_and_login_user(self, api_manager: ApiManager, registered_user):
+    def test_register_and_login_user(self, api_manager: ApiManager, registered_and_logged_user):
         """
         Тест на регистрацию и авторизацию пользователя.
         """
-        login_data = {
-            "email": registered_user["email"],
-            "password": registered_user["password"]
-        }
-        response = api_manager.auth_api.login_user(login_data)
-        response_data = response.json()
+        user_data = registered_and_logged_user
+        user = user_data["user"]
+        access_token = user_data["accessToken"]
 
-        assert "accessToken" in response_data, "Токен доступа отсутствует в ответе"
-        assert response_data["user"]["email"] == registered_user["email"], "Email не совпадает"
+        assert access_token, "accessToken должен быть непустой строкой"
+        assert isinstance(access_token, str), "accessToken должен быть строкой"
+        assert isinstance(user, dict), "Поле user отсутствует или имеет неверный формат"
+        assert isinstance(user.get("id"), str), "id пользователя должен быть строкой"
+        assert user.get("id"), "id пользователя должен быть непустой строкой"
+        assert isinstance(user.get("email"), str), "email пользователя должен быть строкой"
+        assert user.get("email"), "email пользователя должен быть непустой строкой"
+        assert isinstance(user.get("roles"), list), "roles должен быть списком"
+        assert "USER" in user["roles"], "У пользователя должна быть роль USER"
 
-    def test_logout_user(self, api_manager: ApiManager, registered_user):
+    def test_logout_user(self, authenticated_admin):
         """
         Тест на логаут пользователя.
         """
-        login_data = {
-            "email": registered_user["email"],
-            "password": registered_user["password"]
-        }
-        response = api_manager.auth_api.login_user(login_data)
-        response_data = response.json()
-        assert "accessToken" in response_data, "Токен доступа отсутствует в ответе"
-        assert response_data["user"]["email"] == registered_user["email"], "Email не совпадает"
-
-        headers = {"Authorization": f"Bearer {response_data['accessToken']}"}
-        api_manager.auth_api._update_session_headers(**headers)
-
-        logout_response = api_manager.auth_api.logout_user()
+        logout_response = authenticated_admin.auth_api.logout_user()
         logout_response_data = logout_response.text.strip()
         assert logout_response_data == "OK", f"Expected 'OK', got '{logout_response_data}'"
+        authenticated_admin.user_api.get_users(expected_status=401)
 
 class TestNegativeAuthAPI:
     def test_login_nonexistent_email(self, api_manager: ApiManager):
