@@ -13,8 +13,10 @@ pytest==9.0.2
 pytest-html==4.1.1
 pytest-metadata==3.1.1
 pytest-xdist==3.8.0
-python-dotenv==1.2.1
+python-dotenv~=1.2.2
 requests==2.32.5
 urllib3==2.6.3
 
 Faker~=40.1.2
+dotenv~=0.9.9
+pydantic~=2.12.5

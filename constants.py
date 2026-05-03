@@ -13,7 +13,7 @@ LOGOUT_USER = "/logout/"
 GET_OR_POST_MOVIES = "/movies"
 GET_OR_DELETE_OR_PATCH_MOVIES = "/movies/{id}"
 
-class Roles(Enum):
+class Roles(str, Enum):
     USER = "USER"
     ADMIN = "ADMIN"
     SUPER_ADMIN = "SUPER_ADMIN"
@@ -24,11 +24,16 @@ ROLE_HIERARCHY = {
     Roles.SUPER_ADMIN: [Roles.USER.value, Roles.ADMIN.value, Roles.SUPER_ADMIN.value],
 }
 
-def get_roles(role: Roles) -> list[str]:
+def get_roles(role: Roles) -> list[Roles]:
     """
     Возвращает список ролей для данного уровня доступа.
-    USER      → ["USER"]
-    ADMIN     → ["USER", "ADMIN"]
+    USER → ["USER"]
+    ADMIN → ["USER", "ADMIN"]
     SUPER_ADMIN → ["USER", "ADMIN", "SUPER_ADMIN"]
     """
     return ROLE_HIERARCHY[role]
+
+class Colors:
+    GREEN = '\033[32m'
+    RED = '\033[31m'
+    RESET = '\033[0m'

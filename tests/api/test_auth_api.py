@@ -1,37 +1,28 @@
 from clients.api_manager import ApiManager
-
+from models.auth_api_models import RegisterUserResponse, LoginUserResponse
 
 class TestAuthAPI:
-    def test_register_user(self, authenticated_admin, user_factory):
+    def test_register_user(self, user_session, user_factory, created_users_cleanup):
         """
         Тест на регистрацию пользователя.
         """
+        guest_api = user_session()
         user_data = user_factory()
-        new_user = authenticated_admin.user_api.create_user(user_data)
-        new_user_data = new_user.json()
-
-        assert new_user_data["email"] == user_data["email"], "Email должны совпадать"
-        assert "id" in new_user_data, "ID пользователя отсутствует в ответе"
-        assert "roles" in new_user_data, "Роли пользователя отсутствуют в ответе"
-        assert "USER" in new_user_data["roles"], "У пользователя должна быть роль USER"
+        response = guest_api.auth_api.register_user(user_data)
+        register_user_response = RegisterUserResponse(**response.json())
+        assert register_user_response.email == user_data.email, "Email должны совпадать"
+        assert "USER" in register_user_response.roles, "У пользователя должна быть роль USER"
+        created_users_cleanup(register_user_response.id)
 
     def test_register_and_login_user(self, api_manager: ApiManager, registered_and_logged_user):
         """
         Тест на регистрацию и авторизацию пользователя.
         """
-        user_data = registered_and_logged_user
-        user = user_data["user"]
-        access_token = user_data["accessToken"]
-
-        assert access_token, "accessToken должен быть непустой строкой"
-        assert isinstance(access_token, str), "accessToken должен быть строкой"
-        assert isinstance(user, dict), "Поле user отсутствует или имеет неверный формат"
-        assert isinstance(user.get("id"), str), "id пользователя должен быть строкой"
-        assert user.get("id"), "id пользователя должен быть непустой строкой"
-        assert isinstance(user.get("email"), str), "email пользователя должен быть строкой"
-        assert user.get("email"), "email пользователя должен быть непустой строкой"
-        assert isinstance(user.get("roles"), list), "roles должен быть списком"
-        assert "USER" in user["roles"], "У пользователя должна быть роль USER"
+        login_user_response = LoginUserResponse(**registered_and_logged_user)
+        assert "USER" in login_user_response.user.roles, "У пользователя должна быть роль USER"
+        assert login_user_response.user.email is not None, "У пользователя должен быть корректный email"
+        assert login_user_response.accessToken, "У пользователя должен быть accessToken"
+        assert login_user_response.refreshToken, "У пользователя должен быть refreshToken"
 
     def test_logout_user(self, authenticated_admin):
         """
@@ -45,10 +36,8 @@ class TestAuthAPI:
 class TestNegativeAuthAPI:
     def test_login_nonexistent_email(self, api_manager: ApiManager):
         """401 при логине несуществующего email"""
-
         login_data = {"email": "nonexistent@gmail.com", "password": "any"}
         login_response = api_manager.auth_api.login_user(login_data, expected_status=401)
-
         assert "accessToken" not in login_response.json()
 
     def test_login_invalid_email_format(self, api_manager: ApiManager):

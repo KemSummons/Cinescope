@@ -1,6 +1,5 @@
 import pytest
 from faker import Faker
-
 from RestfulBookerAPI.constants import (
     CREATE_BOOKING_ENDPOINT,
     UPDATE_BOOKING_ENDPOINT,
@@ -8,6 +7,9 @@ from RestfulBookerAPI.constants import (
     DELETE_BOOKING_ENDPOINT,
 )
 from RestfulBookerAPI.helpers import get_booking
+
+pytestmark = pytest.mark.skip(reason="тесты проекта BookerAPI")
+
 
 class TestBookings:
     def test_create_booking(self, created_booking, booking_data):
