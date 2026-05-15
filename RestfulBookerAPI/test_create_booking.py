@@ -6,7 +6,7 @@ from RestfulBookerAPI.constants import (
     PARTIAL_UPDATE_BOOKING_ENDPOINT,
     DELETE_BOOKING_ENDPOINT,
 )
-from RestfulBookerAPI.helpers import get_booking
+from RestfulBookerAPI.booker_helpers import get_booking
 
 pytestmark = pytest.mark.skip(reason="тесты проекта BookerAPI")
 

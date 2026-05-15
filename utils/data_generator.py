@@ -52,3 +52,7 @@ class DataGenerator:
             "published": random.choice([True, False]),  # 50/50
             "genreId": random.randint(1, 10),  # ID жанра 1-10
         }
+
+    @staticmethod
+    def generate_random_int(number):
+        return random.randint(1, number)

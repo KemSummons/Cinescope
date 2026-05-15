@@ -43,3 +43,7 @@ class LoginUserResponse(BaseModel):
     accessToken: str = Field(min_length=20)
     refreshToken: str = Field(min_length=20)
     expiresIn: int
+
+class LoginUserRequest(BaseModel):
+    email: str
+    password: str

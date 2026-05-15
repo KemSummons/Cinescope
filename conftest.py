@@ -2,11 +2,14 @@ import pytest
 import requests
 from clients.api_manager import ApiManager
 from constants import BASE_URL, Roles, get_roles
+from db_requester.db_helpers import DBHelper
 from models.user_api_models import UserData
 from models.movie_api_models import CreateMovieRequest, CreateMovieResponse
 from utils.data_generator import DataGenerator
 from resources.user_creds import SuperAdminCreds
 from user import User
+from sqlalchemy.orm import Session
+from db_requester.db_client import get_db_session
 
 @pytest.fixture(scope='function')
 def user_factory():
@@ -215,3 +218,34 @@ def created_users_cleanup(super_admin):
 
     for user_id in created_ids:
         super_admin.api.user_api.delete_user(user_id, expected_status=(200, 404))
+
+@pytest.fixture(scope="module")
+def db_session() -> Session:
+    """
+    Фикстура, которая создает и возвращает сессию для работы с базой данных
+    После завершения теста сессия автоматически закрывается
+    """
+    db_session = get_db_session()
+    yield db_session
+    db_session.close()
+
+@pytest.fixture(scope="function")
+def db_helper(db_session) -> DBHelper:
+    """
+    Фикстура для экземпляра хелпера
+    """
+    db_helper = DBHelper(db_session)
+    return db_helper
+
+@pytest.fixture(scope="function")
+def created_test_user(db_helper):
+    """
+    Фикстура, которая создает тестового пользователя в БД
+    и удаляет его после завершения теста
+    """
+    user = db_helper.create_test_user(DataGenerator.generate_user_data())
+
+    yield user
+
+    if db_helper.get_user_by_id(user.id):
+        db_helper.delete_user(user)

@@ -24,3 +24,5 @@ venv/
 # *.db
 # *.csv
 # *.xlsx
+allure-results/
+allure-report/

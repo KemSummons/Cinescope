@@ -1,14 +1,15 @@
+import allure
 import pytest
 from constants import Roles
 from helpers import assert_common_fields_equal
 from models.user_api_models import CreateUserResponse, GetAllUsersResponse
 
 
+@pytest.mark.regression
 class TestUserApi:
-    """
-    Позитивные тесты для хендлера user
-    """
-
+    @allure.title("Создание пользователя")
+    @allure.description("Проверка создания нового пользователя суперадмином")
+    @pytest.mark.smoke
     def test_create_user(self, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -16,6 +17,8 @@ class TestUserApi:
         created_users_cleanup(create_response_data.id)
         assert_common_fields_equal(user_data, create_response_data)
 
+    @allure.title("Получение пользователя по id и email")
+    @allure.description("Проверка получения информации о пользователе по id и email")
     def test_get_user_by_locator(self, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -28,6 +31,8 @@ class TestUserApi:
         assert_common_fields_equal(create_response_data, user_with_id_data)
         assert_common_fields_equal(create_response_data, user_with_email_data)
 
+    @allure.title("Обновление пользователя")
+    @allure.description("Проверка обновления данных пользователя")
     def test_update_user(self, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -46,6 +51,8 @@ class TestUserApi:
             exclude_fields={"verified", "banned", "roles"},
         )
 
+    @allure.title("Удаление пользователя")
+    @allure.description("Проверка удаления пользователя")
     def test_delete_user(self, super_admin, user_factory):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -54,6 +61,8 @@ class TestUserApi:
         get_response = super_admin.api.user_api.get_user_info(create_response_data.id)
         assert get_response.json() == {}
 
+    @allure.title("Получение списка пользователей")
+    @allure.description("Проверка получения списка пользователей с фильтрацией и пагинацией")
     def test_get_all_users(self, super_admin):
         response = super_admin.api.user_api.get_users(
             params={"pageSize": 5, "page": 3, "roles": ["ADMIN"], "createdAt": "desc"}
@@ -67,11 +76,10 @@ class TestUserApi:
             assert Roles.ADMIN in user.roles
 
 
+@pytest.mark.negative
 class TestNegativeUserApi:
-    """
-    Негативные тесты для хендлера user
-    """
-
+    @allure.title("Создание пользователя без прав")
+    @allure.description("Проверка создания пользователя без админских прав")
     def test_create_user_without_permissions(self, create_common_user, user_factory):
         user_data = user_factory()
         create_response = create_common_user.api.user_api.create_user(user_data, expected_status=403)
@@ -79,12 +87,16 @@ class TestNegativeUserApi:
         assert "message" in create_response_data
         assert "Forbidden" == create_response_data["error"]
 
+    @allure.title("Создание пользователя с пустым телом")
+    @allure.description("Проверка создания пользователя с пустым телом запроса")
     def test_create_user_with_empty_body(self, super_admin):
         create_response = super_admin.api.user_api.create_user(user_data=None, expected_status=400)
         create_response_data = create_response.json()
         assert "message" in create_response_data
         assert "Bad Request" == create_response_data["error"]
 
+    @allure.title("Создание пользователя с дублирующимся email")
+    @allure.description("Проверка создания пользователя с уже существующим email")
     def test_create_user_with_duplicate_email(self, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         first_create_response = super_admin.api.user_api.create_user(user_data, expected_status=201)
@@ -95,6 +107,8 @@ class TestNegativeUserApi:
         assert "message" in duplicate_response_data
         assert "Conflict" == duplicate_response_data["error"]
 
+    @allure.title("Обновление пользователя без прав")
+    @allure.description("Проверка обновления пользователя без админских прав")
     def test_update_user_without_permissions(
             self, super_admin, create_common_user, user_factory, created_users_cleanup
     ):
@@ -109,6 +123,8 @@ class TestNegativeUserApi:
         )
         assert "message" in update_response.json()
 
+    @allure.title("Обновление удалённого пользователя")
+    @allure.description("Проверка обновления уже удалённого пользователя")
     def test_update_deleted_user(self, super_admin, user_factory):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -121,6 +137,8 @@ class TestNegativeUserApi:
         )
         assert "message" in update_response.json()
 
+    @allure.title("Обновление пользователя с невалидными ролями")
+    @allure.description("Проверка обновления пользователя с некорректными ролями")
     def test_update_user_with_invalid_roles(self, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -134,6 +152,8 @@ class TestNegativeUserApi:
         assert "message" in update_response.json()
         assert "Bad Request" == update_response.json()["error"]
 
+    @allure.title("Удаление пользователя без прав")
+    @allure.description("Проверка удаления пользователя без админских прав")
     def test_delete_user_without_permissions(
             self, super_admin, create_common_user, user_factory, created_users_cleanup
     ):
@@ -145,11 +165,15 @@ class TestNegativeUserApi:
         assert "message" in delete_response.json()
         assert "Forbidden" == delete_response.json()["message"]
 
+    @allure.title("Удаление пользователя с невалидным id")
+    @allure.description("Проверка удаления пользователя с некорректным идентификатором")
     def test_delete_user_with_invalid_id(self, super_admin):
         delete_response = super_admin.api.user_api.delete_user("invalid-id", expected_status=400)
         assert "message" in delete_response.json()
         assert "Bad Request" == delete_response.json()["error"]
 
+    @allure.title("Повторное удаление пользователя")
+    @allure.description("Проверка повторного удаления уже удалённого пользователя")
     def test_delete_already_deleted_user(self, super_admin, user_factory):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -159,6 +183,8 @@ class TestNegativeUserApi:
         assert "message" in second_delete_response.json()
         assert "Not Found" == second_delete_response.json()["message"]
 
+    @allure.title("Получение несуществующего пользователя по id")
+    @allure.description("Проверка получения информации по несуществующему id")
     def test_get_non_existent_user_by_id(self, super_admin):
         get_response = super_admin.api.user_api.get_user_info(
             "00000000-0000-0000-0000-000000000000",
@@ -166,10 +192,14 @@ class TestNegativeUserApi:
         )
         assert get_response.json() == {}
 
+    @allure.title("Получение несуществующего пользователя по email")
+    @allure.description("Проверка получения информации пользователя по несуществующему email")
     def test_get_non_existent_user_by_email(self, super_admin):
         get_response = super_admin.api.user_api.get_user_info("user_not_found@qa.test", expected_status=200)
         assert get_response.json() == {}
 
+    @allure.title("Получение пользователя без авторизации")
+    @allure.description("Проверка получения информации о пользователе неавторизованным пользователем")
     def test_get_user_info_unauthorized(self, user_session, super_admin, user_factory, created_users_cleanup):
         user_data = user_factory()
         create_response = super_admin.api.user_api.create_user(user_data)
@@ -180,6 +210,8 @@ class TestNegativeUserApi:
         assert "message" in get_response.json()
         assert "Unauthorized" == get_response.json()["message"]
 
+    @allure.title("Получение пользователя без прав")
+    @allure.description("Проверка получения информации о пользователе пользователем с ролью USER")
     def test_get_user_info_forbidden_for_user_role(
             self, create_common_user, super_admin, user_factory, created_users_cleanup
     ):
@@ -191,22 +223,30 @@ class TestNegativeUserApi:
         assert "message" in get_response.json()
         assert "Forbidden" == get_response.json()["error"]
 
+    @allure.title("Получение списка пользователей без авторизации")
+    @allure.description("Проверка получения списка пользователей неавторизованным пользователем")
     def test_get_all_users_unauthorized(self, user_session):
         guest_api = user_session()
         get_response = guest_api.user_api.get_users(params={"page": 1, "pageSize": 3}, expected_status=401)
         assert "message" in get_response.json()
         assert "Unauthorized" == get_response.json()["message"]
 
+    @allure.title("Получение списка пользователей без прав")
+    @allure.description("Проверка получения списка пользователей пользователем с ролью USER")
     def test_get_all_users_forbidden_for_user_role(self, create_common_user):
         get_response = create_common_user.api.user_api.get_users(params={"page": 1, "pageSize": 3}, expected_status=403)
         assert "message" in get_response.json()
         assert "Forbidden" == get_response.json()["error"]
 
+    @allure.title("Получение списка пользователей с невалидной пагинацией")
+    @allure.description("Проверка получения списка пользователей с page: -1")
     def test_get_all_users_with_invalid_page(self, super_admin):
         get_response = super_admin.api.user_api.get_users(params={"page": -1, "pageSize": 5}, expected_status=400)
         assert "message" in get_response.json()
         assert "Bad Request" == get_response.json()["error"]
 
+    @allure.title("Невалидные параметры пагинации")
+    @allure.description("Проверка получения списка пользователей с некорректными параметрами page и pageSize")
     @pytest.mark.parametrize(
         "params",
         [
