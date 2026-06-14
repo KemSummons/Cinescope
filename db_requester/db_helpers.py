@@ -35,7 +35,7 @@ class DBHelper:
 
         db_movie_data = {
             "name": movie_data["name"],
-            "price": float(movie_data["price"]),
+            "price": movie_data["price"],
             "description": movie_data["description"],
             "image_url": movie_data.get("imageUrl") or movie_data.get("image_url"),
             "location": movie_data["location"],

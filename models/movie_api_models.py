@@ -10,7 +10,7 @@ class CreateMovieRequest(BaseModel):
     description: str = Field(min_length=1)
     location: Literal["MSK", "SPB"]
     published: bool
-    genreId: int = Field(ge=1, le=10)
+    genreId: int = Field(ge=1)
 
 
 class GenreData(BaseModel):
@@ -25,10 +25,10 @@ class CreateMovieResponse(BaseModel):
     imageUrl: Optional[str] = None
     location: Literal["MSK", "SPB"]
     published: bool
-    genreId: int = Field(ge=1, le=10)
+    genreId: int = Field(ge=1)
     genre: GenreData
     createdAt: datetime
-    rating: int = Field(ge=0)
+    rating: float = Field(ge=0)
 
 
 class UserData(BaseModel):
@@ -37,7 +37,7 @@ class UserData(BaseModel):
 
 class ReviewData(BaseModel):
     userId: str
-    rating: int = Field(ge=0)
+    rating: float = Field(ge=0)
     text: str = Field(min_length=1)
     createdAt: datetime
     user: UserData

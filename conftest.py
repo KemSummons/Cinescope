@@ -1,5 +1,7 @@
 import pytest
 import requests
+from playwright.sync_api import sync_playwright
+
 from clients.api_manager import ApiManager
 from constants import BASE_URL, Roles, get_roles
 from db_requester.db_helpers import DBHelper
@@ -249,3 +251,13 @@ def created_test_user(db_helper):
 
     if db_helper.get_user_by_id(user.id):
         db_helper.delete_user(user)
+
+@pytest.fixture(scope="function")
+def page():
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=False)
+        page = browser.new_page()
+
+        yield page
+
+        browser.close()

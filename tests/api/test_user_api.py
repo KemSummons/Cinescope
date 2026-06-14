@@ -76,6 +76,7 @@ class TestUserApi:
             assert Roles.ADMIN in user.roles
 
 
+@pytest.mark.regression
 @pytest.mark.negative
 class TestNegativeUserApi:
     @allure.title("Создание пользователя без прав")

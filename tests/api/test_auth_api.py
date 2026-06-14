@@ -36,6 +36,7 @@ class TestAuthAPI:
         authenticated_admin.user_api.get_users(expected_status=401)
 
 
+@pytest.mark.regression
 @pytest.mark.negative
 class TestNegativeAuthAPI:
     @allure.title("Логин с несуществующим email")

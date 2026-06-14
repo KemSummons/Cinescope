@@ -105,7 +105,7 @@ class TestMovieAPI:
             expected_status=(200 if user_role == Roles.SUPER_ADMIN else 403)
         )
 
-
+@pytest.mark.regression
 @pytest.mark.negative
 class TestNegativeMovieAPI:
     @allure.title("Создание фильма без админских прав")
