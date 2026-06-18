@@ -1,0 +1,55 @@
+2026-06-18 18:07:43 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:43 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_users_invalid_pagination[page-negative] (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:43 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:43 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDYzLCJleHAiOjE3ODE4MDc4NjN9.n2Be-IFkMCe9N1IClr9XmsMzexcFrIg3HMh2TM34J7I",
+    "refreshToken": "a48cf9b4-7a67-43e6-9f81-af9d5d0d90bf",
+    "expiresIn": 1781807863547
+}
+2026-06-18 18:07:43 INFO ================================================================================
+2026-06-18 18:07:43 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:43 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_users_invalid_pagination[page-negative][0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user?page=-1&pageSize=5' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDYzLCJleHAiOjE3ODE4MDc4NjN9.n2Be-IFkMCe9N1IClr9XmsMzexcFrIg3HMh2TM34J7I' \
+-H 'Cookie: refresh_token=a48cf9b4-7a67-43e6-9f81-af9d5d0d90bf' \
+
+2026-06-18 18:07:43 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:43 INFO 	STATUS_CODE: [31m400[0m
+	DATA: [31m{
+    "message": [
+        "Поле page имеет минимальную величину 1"
+    ],
+    "error": "Bad Request",
+    "statusCode": 400
+}[0m
+2026-06-18 18:07:43 INFO ================================================================================

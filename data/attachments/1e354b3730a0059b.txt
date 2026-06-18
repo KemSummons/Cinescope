@@ -1,0 +1,134 @@
+2026-06-18 18:06:27 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:27 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_update_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgzLCJleHAiOjE3ODE4MDc3ODN9.egFwT3_k-0pBIzZIDaziyTUXhJ2tHBUy-xY6dsvfqOU' \
+-H 'Cookie: refresh_token=1f760ae9-1adc-4fe7-82af-cdb1c6675c6b' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:27 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:27 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg3LCJleHAiOjE3ODE4MDc3ODd9.IdwpVDjYwHFKfRBfaT4R81jiqGZ5p9WDa6Xo62ZnS9s",
+    "refreshToken": "a3b9d563-62a6-4413-853c-a2dcf8a00d55",
+    "expiresIn": 1781807787219
+}
+2026-06-18 18:06:27 INFO ================================================================================
+
+2026-06-18 18:06:27 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:27 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_update_movie (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg3LCJleHAiOjE3ODE4MDc3ODd9.IdwpVDjYwHFKfRBfaT4R81jiqGZ5p9WDa6Xo62ZnS9s' \
+-H 'Content-Length: 342' \
+-d '{"name": "Reduced cohesive conglomeration", "imageUrl": "https://dummyimage.com/400x600", "price": 482, "description": "Try wide structure claim. Course usually wear wonder minute film leader. Order investment design leader no.\nAffect however through. In indicate pass white sport road.", "location": "SPB", "published": false, "genreId": 7}' 
+
+2026-06-18 18:06:27 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:27 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57240,
+    "name": "Reduced cohesive conglomeration",
+    "price": 482,
+    "description": "Try wide structure claim. Course usually wear wonder minute film leader. Order investment design leader no.\nAffect however through. In indicate pass white sport road.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 7,
+    "createdAt": "2026-06-18T18:06:27.422Z",
+    "genre": {
+        "name": "Мюзикл"
+    }
+}
+2026-06-18 18:06:27 INFO ================================================================================
+2026-06-18 18:06:27 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:27 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_update_movie[0m
+curl -X PATCH 'https://api.dev-cinescope.coconutqa.ru/movies/57240' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg3LCJleHAiOjE3ODE4MDc3ODd9.IdwpVDjYwHFKfRBfaT4R81jiqGZ5p9WDa6Xo62ZnS9s' \
+-H 'Content-Length: 76' \
+-d '{"name": "Vision-oriented 6thgeneration access", "price": 424, "genreId": 1}' 
+
+2026-06-18 18:06:27 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:27 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57240,
+    "name": "Vision-oriented 6thgeneration access",
+    "description": "Try wide structure claim. Course usually wear wonder minute film leader. Order investment design leader no.\nAffect however through. In indicate pass white sport road.",
+    "genreId": 1,
+    "imageUrl": "https://dummyimage.com/400x600",
+    "price": 424,
+    "rating": 0,
+    "location": "SPB",
+    "published": false,
+    "createdAt": "2026-06-18T18:06:27.422Z",
+    "genre": {
+        "name": "Вичтоки"
+    }
+}
+2026-06-18 18:06:27 INFO ================================================================================
+2026-06-18 18:06:27 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:27 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_update_movie (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57240' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg3LCJleHAiOjE3ODE4MDc3ODd9.IdwpVDjYwHFKfRBfaT4R81jiqGZ5p9WDa6Xo62ZnS9s' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:27 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:27 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57240,
+    "name": "Vision-oriented 6thgeneration access",
+    "price": 424,
+    "description": "Try wide structure claim. Course usually wear wonder minute film leader. Order investment design leader no.\nAffect however through. In indicate pass white sport road.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 1,
+    "createdAt": "2026-06-18T18:06:27.422Z",
+    "reviews": [],
+    "genre": {
+        "name": "Вичтоки"
+    }
+}
+2026-06-18 18:06:27 INFO ================================================================================

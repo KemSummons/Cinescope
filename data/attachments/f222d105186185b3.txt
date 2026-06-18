@@ -1,0 +1,105 @@
+2026-06-18 18:07:17 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:17 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_duplicate_email (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:17 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:17 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM3LCJleHAiOjE3ODE4MDc4Mzd9.0NcHB4jXw8xetX478VGv9LdQBhq-WxGdX0i_u684xMs",
+    "refreshToken": "970ac4a1-ca0a-439e-a4b5-b7b4d3913873",
+    "expiresIn": 1781807837354
+}
+2026-06-18 18:07:17 INFO ================================================================================
+2026-06-18 18:07:17 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:17 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_duplicate_email[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM3LCJleHAiOjE3ODE4MDc4Mzd9.0NcHB4jXw8xetX478VGv9LdQBhq-WxGdX0i_u684xMs' \
+-H 'Cookie: refresh_token=970ac4a1-ca0a-439e-a4b5-b7b4d3913873' \
+-H 'Content-Length: 184' \
+-d '{"email": "keky9q647yg@gmail.com", "fullName": "Karen Harmon", "password": "w$YzVPrW?lBGO2A", "passwordRepeat": "w$YzVPrW?lBGO2A", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:17 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:17 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "b521b56c-f34f-48e8-b47d-81fe1fa7103b",
+    "email": "keky9q647yg@gmail.com",
+    "fullName": "Karen Harmon",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:17.734Z"
+}
+2026-06-18 18:07:17 INFO ================================================================================
+
+2026-06-18 18:07:18 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:18 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_duplicate_email[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM3LCJleHAiOjE3ODE4MDc4Mzd9.0NcHB4jXw8xetX478VGv9LdQBhq-WxGdX0i_u684xMs' \
+-H 'Cookie: refresh_token=970ac4a1-ca0a-439e-a4b5-b7b4d3913873' \
+-H 'Content-Length: 184' \
+-d '{"email": "keky9q647yg@gmail.com", "fullName": "Karen Harmon", "password": "w$YzVPrW?lBGO2A", "passwordRepeat": "w$YzVPrW?lBGO2A", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:18 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:18 INFO 	STATUS_CODE: [31m409[0m
+	DATA: [31m{
+    "message": "Пользователь с таким email уже зарегистрирован",
+    "error": "Conflict",
+    "statusCode": 409
+}[0m
+2026-06-18 18:07:18 INFO ================================================================================
+2026-06-18 18:07:18 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:18 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_duplicate_email (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/b521b56c-f34f-48e8-b47d-81fe1fa7103b' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM3LCJleHAiOjE3ODE4MDc4Mzd9.0NcHB4jXw8xetX478VGv9LdQBhq-WxGdX0i_u684xMs' \
+-H 'Cookie: refresh_token=970ac4a1-ca0a-439e-a4b5-b7b4d3913873' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:18 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:18 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:18 INFO ================================================================================

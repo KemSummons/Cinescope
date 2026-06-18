@@ -1,0 +1,115 @@
+2026-06-18 18:06:12 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:12 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_and_login_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:12 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:12 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcyLCJleHAiOjE3ODE4MDc3NzJ9.IR1idIZ1j3Mjt4_ECU9Cksg0JMHwv4-FHn5BoEorGO0",
+    "refreshToken": "14df51d3-775d-4816-bf7b-da3aa0e8fb05",
+    "expiresIn": 1781807772725
+}
+2026-06-18 18:06:12 INFO ================================================================================
+
+2026-06-18 18:06:13 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:13 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_and_login_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/register' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcyLCJleHAiOjE3ODE4MDc3NzJ9.IR1idIZ1j3Mjt4_ECU9Cksg0JMHwv4-FHn5BoEorGO0' \
+-H 'Cookie: refresh_token=14df51d3-775d-4816-bf7b-da3aa0e8fb05' \
+-H 'Content-Length: 172' \
+-d '{"email": "kekya86fexo@gmail.com", "fullName": "Pamela Webster", "password": "00^mB36Q", "passwordRepeat": "00^mB36Q", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:13 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:13 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "16bab537-2aaf-4732-af2e-88aceef660f9",
+    "email": "kekya86fexo@gmail.com",
+    "fullName": "Pamela Webster",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:13.128Z"
+}
+2026-06-18 18:06:13 INFO ================================================================================
+
+2026-06-18 18:06:13 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:13 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_and_login_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcyLCJleHAiOjE3ODE4MDc3NzJ9.IR1idIZ1j3Mjt4_ECU9Cksg0JMHwv4-FHn5BoEorGO0' \
+-H 'Cookie: refresh_token=14df51d3-775d-4816-bf7b-da3aa0e8fb05' \
+-H 'Content-Length: 58' \
+-d '{"email": "kekya86fexo@gmail.com", "password": "00^mB36Q"}' 
+
+2026-06-18 18:06:13 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:13 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "16bab537-2aaf-4732-af2e-88aceef660f9",
+        "email": "kekya86fexo@gmail.com",
+        "fullName": "Pamela Webster",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE2YmFiNTM3LTJhYWYtNDczMi1hZjJlLTg4YWNlZWY2NjBmOSIsImVtYWlsIjoia2VreWE4NmZleG9AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTczLCJleHAiOjE3ODE4MDc3NzN9.uCQklh1zuN6j6kQdYN0pE7zZtt1Z2L3XtL1aFb2J-IA",
+    "refreshToken": "13ef795b-4c23-4f00-9451-bd4aea3416b7",
+    "expiresIn": 1781807773548
+}
+2026-06-18 18:06:13 INFO ================================================================================
+2026-06-18 18:06:13 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:13 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_and_login_user (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/16bab537-2aaf-4732-af2e-88aceef660f9' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcyLCJleHAiOjE3ODE4MDc3NzJ9.IR1idIZ1j3Mjt4_ECU9Cksg0JMHwv4-FHn5BoEorGO0' \
+-H 'Cookie: refresh_token=13ef795b-4c23-4f00-9451-bd4aea3416b7' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:13 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:13 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:13 INFO ================================================================================

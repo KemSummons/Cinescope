@@ -1,0 +1,271 @@
+2026-06-18 18:06:37 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:37 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN] (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTkzLCJleHAiOjE3ODE4MDc3OTN9.mHVpZVGu2aB0OD4Qv2LqQ-BUfBH31cSUUgyzx5fqTkA' \
+-H 'Cookie: refresh_token=2e9d0073-684a-4169-95a9-7fb036306352' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:37 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:37 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk3LCJleHAiOjE3ODE4MDc3OTd9.8xsa-POzS6Eijw9OYEEsrjUGL5LLlpa9fS1QrkIYzJ0",
+    "refreshToken": "9c6cc71e-0e3d-4bc1-a22c-7bd0355959a2",
+    "expiresIn": 1781807797849
+}
+2026-06-18 18:06:37 INFO ================================================================================
+
+2026-06-18 18:06:38 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:38 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN] (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk3LCJleHAiOjE3ODE4MDc3OTd9.8xsa-POzS6Eijw9OYEEsrjUGL5LLlpa9fS1QrkIYzJ0' \
+-H 'Content-Length: 378' \
+-d '{"name": "Multi-channeled 4thgeneration process improvement", "imageUrl": "https://placekitten.com/400/600", "price": 146, "description": "Seek politics also American world design question rest.\nTelevision high upon health. Minute describe customer. Care newspaper sell effect share former. Southern late huge activity war.", "location": "SPB", "published": true, "genreId": 7}' 
+
+2026-06-18 18:06:38 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:38 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57244,
+    "name": "Multi-channeled 4thgeneration process improvement",
+    "price": 146,
+    "description": "Seek politics also American world design question rest.\nTelevision high upon health. Minute describe customer. Care newspaper sell effect share former. Southern late huge activity war.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": true,
+    "rating": 0,
+    "genreId": 7,
+    "createdAt": "2026-06-18T18:06:38.120Z",
+    "genre": {
+        "name": "Мюзикл"
+    }
+}
+2026-06-18 18:06:38 INFO ================================================================================
+
+2026-06-18 18:06:39 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:39 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN] (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:39 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:39 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk5LCJleHAiOjE3ODE4MDc3OTl9.zNY_sEMcGYCJ6VZKKhchCzAgw2PJJOymLZjUMUFxCr8",
+    "refreshToken": "27a4eaa8-facf-418f-bf96-255060631d02",
+    "expiresIn": 1781807799151
+}
+2026-06-18 18:06:39 INFO ================================================================================
+2026-06-18 18:06:39 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:39 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN][0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk5LCJleHAiOjE3ODE4MDc3OTl9.zNY_sEMcGYCJ6VZKKhchCzAgw2PJJOymLZjUMUFxCr8' \
+-H 'Cookie: refresh_token=27a4eaa8-facf-418f-bf96-255060631d02' \
+-H 'Content-Length: 213' \
+-d '{"email": "kekwuklvpz2@gmail.com", "fullName": "Austin Bell", "password": "nBLF0v4:D5iuyntzHG", "passwordRepeat": "nBLF0v4:D5iuyntzHG", "roles": ["USER", "ADMIN", "SUPER_ADMIN"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:39 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:39 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "218ea9cb-1056-4dec-81fd-bfda3cde4842",
+    "email": "kekwuklvpz2@gmail.com",
+    "fullName": "Austin Bell",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:39.532Z"
+}
+2026-06-18 18:06:39 INFO ================================================================================
+
+2026-06-18 18:06:39 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:39 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN][0m
+curl -X PATCH 'https://auth.dev-cinescope.coconutqa.ru/user/218ea9cb-1056-4dec-81fd-bfda3cde4842' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk5LCJleHAiOjE3ODE4MDc3OTl9.zNY_sEMcGYCJ6VZKKhchCzAgw2PJJOymLZjUMUFxCr8' \
+-H 'Cookie: refresh_token=27a4eaa8-facf-418f-bf96-255060631d02' \
+-H 'Content-Length: 43' \
+-d '{"roles": ["USER", "ADMIN", "SUPER_ADMIN"]}' 
+
+2026-06-18 18:06:39 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:39 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "email": "kekwuklvpz2@gmail.com",
+    "fullName": "Austin Bell",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER",
+        "ADMIN",
+        "SUPER_ADMIN"
+    ],
+    "createdAt": "2026-06-18T18:06:39.532Z"
+}
+2026-06-18 18:06:39 INFO ================================================================================
+
+2026-06-18 18:06:40 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:40 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN][0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 68' \
+-d '{"email": "kekwuklvpz2@gmail.com", "password": "nBLF0v4:D5iuyntzHG"}' 
+
+2026-06-18 18:06:40 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:40 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "218ea9cb-1056-4dec-81fd-bfda3cde4842",
+        "email": "kekwuklvpz2@gmail.com",
+        "fullName": "Austin Bell",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxOGVhOWNiLTEwNTYtNGRlYy04MWZkLWJmZGEzY2RlNDg0MiIsImVtYWlsIjoia2Vrd3VrbHZwejJAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIiwiU1VQRVJfQURNSU4iXSwidmVyaWZpZWQiOnRydWUsImlhdCI6MTc4MTgwNjAwMCwiZXhwIjoxNzgxODA3ODAwfQ.t6cgrnk5oTIGsEbfjz07cx1E-dLs9-qiPYf2o2l-CPE",
+    "refreshToken": "912bf5da-7885-4760-b209-fe427b0def5a",
+    "expiresIn": 1781807800838
+}
+2026-06-18 18:06:40 INFO ================================================================================
+
+2026-06-18 18:06:41 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:41 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN][0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57244' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIxOGVhOWNiLTEwNTYtNGRlYy04MWZkLWJmZGEzY2RlNDg0MiIsImVtYWlsIjoia2Vrd3VrbHZwejJAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiIsIkFETUlOIiwiU1VQRVJfQURNSU4iXSwidmVyaWZpZWQiOnRydWUsImlhdCI6MTc4MTgwNjAwMCwiZXhwIjoxNzgxODA3ODAwfQ.t6cgrnk5oTIGsEbfjz07cx1E-dLs9-qiPYf2o2l-CPE' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:41 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:41 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57244,
+    "name": "Multi-channeled 4thgeneration process improvement",
+    "price": 146,
+    "description": "Seek politics also American world design question rest.\nTelevision high upon health. Minute describe customer. Care newspaper sell effect share former. Southern late huge activity war.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": true,
+    "rating": 0,
+    "genreId": 7,
+    "createdAt": "2026-06-18T18:06:38.120Z",
+    "reviews": [],
+    "genre": {
+        "name": "Мюзикл"
+    }
+}
+2026-06-18 18:06:41 INFO ================================================================================
+2026-06-18 18:06:42 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:42 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN] (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/218ea9cb-1056-4dec-81fd-bfda3cde4842' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk5LCJleHAiOjE3ODE4MDc3OTl9.zNY_sEMcGYCJ6VZKKhchCzAgw2PJJOymLZjUMUFxCr8' \
+-H 'Cookie: refresh_token=27a4eaa8-facf-418f-bf96-255060631d02' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:42 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:42 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:42 INFO ================================================================================
+
+2026-06-18 18:06:42 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:42 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie_all_roles[Role: SUPER_ADMIN] (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57244' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk3LCJleHAiOjE3ODE4MDc3OTd9.8xsa-POzS6Eijw9OYEEsrjUGL5LLlpa9fS1QrkIYzJ0' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:42 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:42 INFO 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Фильм не найден",
+    "error": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-18 18:06:42 INFO ================================================================================

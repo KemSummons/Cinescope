@@ -1,0 +1,22 @@
+2026-06-18 18:06:15 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:15 INFO [32mpytest tests/api/test_auth_api.py::TestNegativeAuthAPI::test_login_invalid_email_format[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc0LCJleHAiOjE3ODE4MDc3NzR9.-Zy8lB9GsJ5RMADhtfUb48r4L-yQ_1PktQVzEMHbaCw' \
+-H 'Content-Length: 52' \
+-d '{"email": "nonexistentgmail.com", "password": "any"}' 
+
+2026-06-18 18:06:15 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:15 INFO 	STATUS_CODE: [31m401[0m
+	DATA: [31m{
+    "message": "Неверный логин или пароль",
+    "error": "Unauthorized",
+    "statusCode": 401
+}[0m
+2026-06-18 18:06:15 INFO ================================================================================

@@ -1,0 +1,135 @@
+2026-06-18 18:06:43 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:43 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_rules_creation (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:43 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:43 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDAzLCJleHAiOjE3ODE4MDc4MDN9.zyy0CB5t8ZUfh7dGnqZzcJ0cvsI5MXS3KpSWcsn372I",
+    "refreshToken": "1905e526-fb87-4f46-a924-ff98d782e2aa",
+    "expiresIn": 1781807803451
+}
+2026-06-18 18:06:43 INFO ================================================================================
+
+2026-06-18 18:06:44 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:44 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_rules_creation (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDAzLCJleHAiOjE3ODE4MDc4MDN9.zyy0CB5t8ZUfh7dGnqZzcJ0cvsI5MXS3KpSWcsn372I' \
+-H 'Cookie: refresh_token=1905e526-fb87-4f46-a924-ff98d782e2aa' \
+-H 'Content-Length: 172' \
+-d '{"email": "kekj4badt7f@gmail.com", "fullName": "Joseph Black", "password": "*8oalzqQu", "passwordRepeat": "*8oalzqQu", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:44 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:44 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "127ae3d6-7d4c-416b-9d50-10b0ad8e98a4",
+    "email": "kekj4badt7f@gmail.com",
+    "fullName": "Joseph Black",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:43.915Z"
+}
+2026-06-18 18:06:44 INFO ================================================================================
+
+2026-06-18 18:06:45 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:45 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_rules_creation (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 59' \
+-d '{"email": "kekj4badt7f@gmail.com", "password": "*8oalzqQu"}' 
+
+2026-06-18 18:06:45 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:45 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "127ae3d6-7d4c-416b-9d50-10b0ad8e98a4",
+        "email": "kekj4badt7f@gmail.com",
+        "fullName": "Joseph Black",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyN2FlM2Q2LTdkNGMtNDE2Yi05ZDUwLTEwYjBhZDhlOThhNCIsImVtYWlsIjoia2VrajRiYWR0N2ZAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA1LCJleHAiOjE3ODE4MDc4MDV9.1d2q8aj99MG_qwqJ3uFOa2UqyEdD46vZfhYnzB1kd1Y",
+    "refreshToken": "2bc2acd8-24a1-4294-a27b-7c74ca1e5d26",
+    "expiresIn": 1781807805137
+}
+2026-06-18 18:06:45 INFO ================================================================================
+2026-06-18 18:06:46 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:46 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_rules_creation[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyN2FlM2Q2LTdkNGMtNDE2Yi05ZDUwLTEwYjBhZDhlOThhNCIsImVtYWlsIjoia2VrajRiYWR0N2ZAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA1LCJleHAiOjE3ODE4MDc4MDV9.1d2q8aj99MG_qwqJ3uFOa2UqyEdD46vZfhYnzB1kd1Y' \
+-H 'Content-Length: 326' \
+-d '{"name": "Profound optimal synergy", "imageUrl": "https://placekitten.com/400/600", "price": 256, "description": "These writer mouth owner camera toward. Hour head actually.\nPer individual leave those probably also beautiful. Size piece pretty realize relationship form.", "location": "MSK", "published": false, "genreId": 3}' 
+
+2026-06-18 18:06:46 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:46 INFO 	STATUS_CODE: [31m403[0m
+	DATA: [31m{
+    "message": "Forbidden resource",
+    "error": "Forbidden",
+    "statusCode": 403
+}[0m
+2026-06-18 18:06:46 INFO ================================================================================
+2026-06-18 18:06:46 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:46 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_rules_creation (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/127ae3d6-7d4c-416b-9d50-10b0ad8e98a4' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDAzLCJleHAiOjE3ODE4MDc4MDN9.zyy0CB5t8ZUfh7dGnqZzcJ0cvsI5MXS3KpSWcsn372I' \
+-H 'Cookie: refresh_token=1905e526-fb87-4f46-a924-ff98d782e2aa' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:46 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:46 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:46 INFO ================================================================================

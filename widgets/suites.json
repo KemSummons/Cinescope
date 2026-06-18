@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"03df66830909f413b6e5a7faed621a0d","name":"tests.api","statistic":{"failed":0,"broken":0,"skipped":0,"passed":55,"unknown":0,"total":55}},{"uid":"a540cbf60c6c1d37f11ba6af808ba2b3","name":"RestfulBookerAPI","statistic":{"failed":0,"broken":0,"skipped":9,"passed":0,"unknown":0,"total":9}}]}

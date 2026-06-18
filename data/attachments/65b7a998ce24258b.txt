@@ -1,0 +1,50 @@
+2026-06-18 18:07:32 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:32 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_non_existent_user_by_id (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:32 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:32 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUyLCJleHAiOjE3ODE4MDc4NTJ9.RHfIhFOXheLCktftCuStNCCEHZI1K8i9KAFYdCuc5eM",
+    "refreshToken": "efb4286a-63f0-4508-abdc-05b76d1cda38",
+    "expiresIn": 1781807852149
+}
+2026-06-18 18:07:32 INFO ================================================================================
+2026-06-18 18:07:32 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:32 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_non_existent_user_by_id[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user/00000000-0000-0000-0000-000000000000' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUyLCJleHAiOjE3ODE4MDc4NTJ9.RHfIhFOXheLCktftCuStNCCEHZI1K8i9KAFYdCuc5eM' \
+-H 'Cookie: refresh_token=efb4286a-63f0-4508-abdc-05b76d1cda38' \
+
+2026-06-18 18:07:32 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:32 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{}
+2026-06-18 18:07:32 INFO ================================================================================

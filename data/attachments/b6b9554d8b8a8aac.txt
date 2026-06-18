@@ -1,0 +1,87 @@
+2026-06-18 18:06:59 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:59 INFO [32mpytest tests/api/test_movie_api.py::TestDBMovieAPI::test_delete_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:59 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:59 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE5LCJleHAiOjE3ODE4MDc4MTl9.2gafVH7ND-c4Y0c2pEEbLSbCK3HKPz7mjmCfv2oTeK4",
+    "refreshToken": "c2697c89-582b-43bd-8622-af1fcf536880",
+    "expiresIn": 1781807819141
+}
+2026-06-18 18:06:59 INFO ================================================================================
+2026-06-18 18:07:02 INFO Фильм с id 57247 успешно создан для теста
+2026-06-18 18:07:03 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:03 INFO [32mpytest tests/api/test_movie_api.py::TestDBMovieAPI::test_delete_movie[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57247' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE5LCJleHAiOjE3ODE4MDc4MTl9.2gafVH7ND-c4Y0c2pEEbLSbCK3HKPz7mjmCfv2oTeK4' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:03 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:03 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57247,
+    "name": "Synergized grid-enabled core",
+    "price": 413,
+    "description": "Seek direction and out head remember off. You sister before character.\nParty north Democrat lead how sport someone. Hard citizen value step hospital whole prove.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "MSK",
+    "published": false,
+    "rating": 0,
+    "genreId": 7,
+    "createdAt": "2026-06-18T18:06:59.247Z",
+    "reviews": [],
+    "genre": {
+        "name": "Мюзикл"
+    }
+}
+2026-06-18 18:07:03 INFO ================================================================================
+
+2026-06-18 18:07:03 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:03 INFO [32mpytest tests/api/test_movie_api.py::TestDBMovieAPI::test_delete_movie[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies/57247' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE5LCJleHAiOjE3ODE4MDc4MTl9.2gafVH7ND-c4Y0c2pEEbLSbCK3HKPz7mjmCfv2oTeK4' \
+
+2026-06-18 18:07:03 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:03 INFO 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Фильм не найден",
+    "error": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-18 18:07:03 INFO ================================================================================

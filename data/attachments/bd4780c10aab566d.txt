@@ -1,0 +1,101 @@
+2026-06-18 18:06:17 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:17 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_create_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc1LCJleHAiOjE3ODE4MDc3NzV9.UgQhWj5Nah8O2d7L3h5PoPtOG3bLMKuq0ylwsb8AxkA' \
+-H 'Cookie: refresh_token=ce8f4907-5b3f-499f-a3a8-126c5c6b00bd' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:17 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:17 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc3LCJleHAiOjE3ODE4MDc3Nzd9.aqjw1c_apZ_y9MB5oTMz-LLqsfc3nlnmN6vS1oDq2nA",
+    "refreshToken": "beb9dd75-cd12-4299-b351-92b273de16c8",
+    "expiresIn": 1781807777058
+}
+2026-06-18 18:06:17 INFO ================================================================================
+
+2026-06-18 18:06:18 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:18 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_create_movie (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc3LCJleHAiOjE3ODE4MDc3Nzd9.aqjw1c_apZ_y9MB5oTMz-LLqsfc3nlnmN6vS1oDq2nA' \
+-H 'Content-Length: 319' \
+-d '{"name": "Public-key client-server policy", "imageUrl": "https://placekitten.com/400/600", "price": 140, "description": "Common positive night heavy myself dog society. Purpose nothing process behavior difference top. Entire its especially season military tonight.", "location": "SPB", "published": false, "genreId": 3}' 
+
+2026-06-18 18:06:18 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:18 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57237,
+    "name": "Public-key client-server policy",
+    "price": 140,
+    "description": "Common positive night heavy myself dog society. Purpose nothing process behavior difference top. Entire its especially season military tonight.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 3,
+    "createdAt": "2026-06-18T18:06:18.232Z",
+    "genre": {
+        "name": "Фантастика"
+    }
+}
+2026-06-18 18:06:18 INFO ================================================================================
+2026-06-18 18:06:18 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:18 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_create_movie (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57237' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc3LCJleHAiOjE3ODE4MDc3Nzd9.aqjw1c_apZ_y9MB5oTMz-LLqsfc3nlnmN6vS1oDq2nA' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:18 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:18 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57237,
+    "name": "Public-key client-server policy",
+    "price": 140,
+    "description": "Common positive night heavy myself dog society. Purpose nothing process behavior difference top. Entire its especially season military tonight.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 3,
+    "createdAt": "2026-06-18T18:06:18.232Z",
+    "reviews": [],
+    "genre": {
+        "name": "Фантастика"
+    }
+}
+2026-06-18 18:06:18 INFO ================================================================================

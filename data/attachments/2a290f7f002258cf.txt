@@ -1,0 +1,185 @@
+2026-06-18 18:07:36 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:36 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:36 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:36 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU2LCJleHAiOjE3ODE4MDc4NTZ9.8qyVU6Cek6eegFv-yI7smY-EBx-HBkRBCQ97ehvFRU0",
+    "refreshToken": "c010c8c6-a6ff-4e07-b84c-c99df1151382",
+    "expiresIn": 1781807856448
+}
+2026-06-18 18:07:36 INFO ================================================================================
+
+2026-06-18 18:07:37 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:37 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU2LCJleHAiOjE3ODE4MDc4NTZ9.8qyVU6Cek6eegFv-yI7smY-EBx-HBkRBCQ97ehvFRU0' \
+-H 'Cookie: refresh_token=c010c8c6-a6ff-4e07-b84c-c99df1151382' \
+-H 'Content-Length: 191' \
+-d '{"email": "kekrrosmgij@gmail.com", "fullName": "Jeremiah West", "password": "4@&ywgI&jB6BvpRl9e", "passwordRepeat": "4@&ywgI&jB6BvpRl9e", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:37 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:37 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "eca0fe4d-3afa-46f5-8226-7f7b6d030b62",
+    "email": "kekrrosmgij@gmail.com",
+    "fullName": "Jeremiah West",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:36.916Z"
+}
+2026-06-18 18:07:37 INFO ================================================================================
+
+2026-06-18 18:07:37 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:37 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 68' \
+-d '{"email": "kekrrosmgij@gmail.com", "password": "4@&ywgI&jB6BvpRl9e"}' 
+
+2026-06-18 18:07:37 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:37 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "eca0fe4d-3afa-46f5-8226-7f7b6d030b62",
+        "email": "kekrrosmgij@gmail.com",
+        "fullName": "Jeremiah West",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYTBmZTRkLTNhZmEtNDZmNS04MjI2LTdmN2I2ZDAzMGI2MiIsImVtYWlsIjoia2VrcnJvc21naWpAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU3LCJleHAiOjE3ODE4MDc4NTd9.61AiB5moRFc1WTrMbFTBTSLAY5a9TOgtNhWMr8UlM2k",
+    "refreshToken": "bb9192f1-877c-48e8-88af-95c31474bfb7",
+    "expiresIn": 1781807857731
+}
+2026-06-18 18:07:37 INFO ================================================================================
+2026-06-18 18:07:38 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:38 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU2LCJleHAiOjE3ODE4MDc4NTZ9.8qyVU6Cek6eegFv-yI7smY-EBx-HBkRBCQ97ehvFRU0' \
+-H 'Cookie: refresh_token=c010c8c6-a6ff-4e07-b84c-c99df1151382' \
+-H 'Content-Length: 173' \
+-d '{"email": "kekusa3y53u@gmail.com", "fullName": "Kelly Clark", "password": "zB10&:BI83", "passwordRepeat": "zB10&:BI83", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:38 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:38 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "8d9eaa6d-69bd-425a-970d-91c0b3bc84d6",
+    "email": "kekusa3y53u@gmail.com",
+    "fullName": "Kelly Clark",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:38.133Z"
+}
+2026-06-18 18:07:38 INFO ================================================================================
+
+2026-06-18 18:07:38 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:38 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user/8d9eaa6d-69bd-425a-970d-91c0b3bc84d6' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYTBmZTRkLTNhZmEtNDZmNS04MjI2LTdmN2I2ZDAzMGI2MiIsImVtYWlsIjoia2VrcnJvc21naWpAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU3LCJleHAiOjE3ODE4MDc4NTd9.61AiB5moRFc1WTrMbFTBTSLAY5a9TOgtNhWMr8UlM2k' \
+-H 'Cookie: refresh_token=bb9192f1-877c-48e8-88af-95c31474bfb7' \
+
+2026-06-18 18:07:38 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:38 INFO 	STATUS_CODE: [31m403[0m
+	DATA: [31m{
+    "message": "Forbidden resource",
+    "error": "Forbidden",
+    "statusCode": 403
+}[0m
+2026-06-18 18:07:38 INFO ================================================================================
+2026-06-18 18:07:38 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:38 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/8d9eaa6d-69bd-425a-970d-91c0b3bc84d6' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU2LCJleHAiOjE3ODE4MDc4NTZ9.8qyVU6Cek6eegFv-yI7smY-EBx-HBkRBCQ97ehvFRU0' \
+-H 'Cookie: refresh_token=c010c8c6-a6ff-4e07-b84c-c99df1151382' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:38 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:38 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:38 INFO ================================================================================
+
+2026-06-18 18:07:38 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:38 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_user_info_forbidden_for_user_role (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/eca0fe4d-3afa-46f5-8226-7f7b6d030b62' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDU2LCJleHAiOjE3ODE4MDc4NTZ9.8qyVU6Cek6eegFv-yI7smY-EBx-HBkRBCQ97ehvFRU0' \
+-H 'Cookie: refresh_token=c010c8c6-a6ff-4e07-b84c-c99df1151382' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:38 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:38 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:38 INFO ================================================================================

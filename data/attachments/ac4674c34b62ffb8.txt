@@ -1,0 +1,248 @@
+2026-06-18 18:06:19 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:19 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc3LCJleHAiOjE3ODE4MDc3Nzd9.aqjw1c_apZ_y9MB5oTMz-LLqsfc3nlnmN6vS1oDq2nA' \
+-H 'Cookie: refresh_token=beb9dd75-cd12-4299-b351-92b273de16c8' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:19 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:19 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc5LCJleHAiOjE3ODE4MDc3Nzl9.2cIpI6oUelDg4k58E_I7FF2rPHPx6v8RDcYk6cpOjeA",
+    "refreshToken": "1bd38022-246f-4743-88b1-8b3f7ac8b31f",
+    "expiresIn": 1781807779145
+}
+2026-06-18 18:06:19 INFO ================================================================================
+
+2026-06-18 18:06:19 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:19 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc5LCJleHAiOjE3ODE4MDc3Nzl9.2cIpI6oUelDg4k58E_I7FF2rPHPx6v8RDcYk6cpOjeA' \
+-H 'Content-Length: 358' \
+-d '{"name": "Programmable 24/7 architecture", "imageUrl": "https://placekitten.com/400/600", "price": 294, "description": "Will economic there better third brother idea already. Decision century stage. Research court out thank move population drive. Career less military trade structure pick beat somebody.", "location": "SPB", "published": false, "genreId": 3}' 
+
+2026-06-18 18:06:19 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:19 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57238,
+    "name": "Programmable 24/7 architecture",
+    "price": 294,
+    "description": "Will economic there better third brother idea already. Decision century stage. Research court out thank move population drive. Career less military trade structure pick beat somebody.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 3,
+    "createdAt": "2026-06-18T18:06:19.356Z",
+    "genre": {
+        "name": "Фантастика"
+    }
+}
+2026-06-18 18:06:19 INFO ================================================================================
+
+2026-06-18 18:06:20 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:20 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:20 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:20 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgwLCJleHAiOjE3ODE4MDc3ODB9.LWUAteTIHaT2uBzBHSz5rcDCCQC60P1rE_qAM_urAxk",
+    "refreshToken": "85efd21e-2b83-4329-9720-860126f73cc7",
+    "expiresIn": 1781807780450
+}
+2026-06-18 18:06:20 INFO ================================================================================
+
+2026-06-18 18:06:21 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:21 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgwLCJleHAiOjE3ODE4MDc3ODB9.LWUAteTIHaT2uBzBHSz5rcDCCQC60P1rE_qAM_urAxk' \
+-H 'Cookie: refresh_token=85efd21e-2b83-4329-9720-860126f73cc7' \
+-H 'Content-Length: 170' \
+-d '{"email": "kek9jnivvve@gmail.com", "fullName": "Brenda Meyer", "password": "NIHIA488", "passwordRepeat": "NIHIA488", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:21 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:21 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "a28c97e4-4498-441c-9e1b-653be81ff9c2",
+    "email": "kek9jnivvve@gmail.com",
+    "fullName": "Brenda Meyer",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:20.920Z"
+}
+2026-06-18 18:06:21 INFO ================================================================================
+
+2026-06-18 18:06:22 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:22 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 58' \
+-d '{"email": "kek9jnivvve@gmail.com", "password": "NIHIA488"}' 
+
+2026-06-18 18:06:22 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:22 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "a28c97e4-4498-441c-9e1b-653be81ff9c2",
+        "email": "kek9jnivvve@gmail.com",
+        "fullName": "Brenda Meyer",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyOGM5N2U0LTQ0OTgtNDQxYy05ZTFiLTY1M2JlODFmZjljMiIsImVtYWlsIjoia2VrOWpuaXZ2dmVAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgyLCJleHAiOjE3ODE4MDc3ODJ9.VGL7Y0dlbJSkVIr-D0BYXvgL1iIqypZnjeCS9GptJ7I",
+    "refreshToken": "98631644-efa5-47ef-b1b6-0e39376f1098",
+    "expiresIn": 1781807782238
+}
+2026-06-18 18:06:22 INFO ================================================================================
+2026-06-18 18:06:23 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:23 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies/57238' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEyOGM5N2U0LTQ0OTgtNDQxYy05ZTFiLTY1M2JlODFmZjljMiIsImVtYWlsIjoia2VrOWpuaXZ2dmVAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgyLCJleHAiOjE3ODE4MDc3ODJ9.VGL7Y0dlbJSkVIr-D0BYXvgL1iIqypZnjeCS9GptJ7I' \
+
+2026-06-18 18:06:23 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:23 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57238,
+    "name": "Programmable 24/7 architecture",
+    "price": 294,
+    "description": "Will economic there better third brother idea already. Decision century stage. Research court out thank move population drive. Career less military trade structure pick beat somebody.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 3,
+    "createdAt": "2026-06-18T18:06:19.356Z",
+    "reviews": [],
+    "genre": {
+        "name": "Фантастика"
+    }
+}
+2026-06-18 18:06:23 INFO ================================================================================
+2026-06-18 18:06:23 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:23 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/a28c97e4-4498-441c-9e1b-653be81ff9c2' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgwLCJleHAiOjE3ODE4MDc3ODB9.LWUAteTIHaT2uBzBHSz5rcDCCQC60P1rE_qAM_urAxk' \
+-H 'Cookie: refresh_token=85efd21e-2b83-4329-9720-860126f73cc7' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:23 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:23 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:23 INFO ================================================================================
+
+2026-06-18 18:06:23 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:23 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_common_user (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57238' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc5LCJleHAiOjE3ODE4MDc3Nzl9.2cIpI6oUelDg4k58E_I7FF2rPHPx6v8RDcYk6cpOjeA' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:23 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:23 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57238,
+    "name": "Programmable 24/7 architecture",
+    "price": 294,
+    "description": "Will economic there better third brother idea already. Decision century stage. Research court out thank move population drive. Career less military trade structure pick beat somebody.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "SPB",
+    "published": false,
+    "rating": 0,
+    "genreId": 3,
+    "createdAt": "2026-06-18T18:06:19.356Z",
+    "reviews": [],
+    "genre": {
+        "name": "Фантастика"
+    }
+}
+2026-06-18 18:06:23 INFO ================================================================================

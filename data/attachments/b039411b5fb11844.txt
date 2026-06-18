@@ -1,0 +1,22 @@
+2026-06-18 18:06:47 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:47 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_negative_pagesize_limit[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies?pageSize=21' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA3LCJleHAiOjE3ODE4MDc4MDd9.AMBiQoX9BmCrKAJzwKXjUdpl-AUG2gUdgY3P52NDmZw' \
+
+2026-06-18 18:06:47 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:47 INFO 	STATUS_CODE: [31m400[0m
+	DATA: [31m{
+    "message": [
+        "Поле pageSize имеет максимальную величину 20"
+    ],
+    "error": "Bad Request",
+    "statusCode": 400
+}[0m
+2026-06-18 18:06:47 INFO ================================================================================

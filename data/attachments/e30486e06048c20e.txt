@@ -1,0 +1,122 @@
+2026-06-18 18:07:12 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:12 INFO [32mpytest tests/api/test_user_api.py::TestUserApi::test_get_all_users (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:12 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:12 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDMyLCJleHAiOjE3ODE4MDc4MzJ9.aG3IGuhdea2oLJGwU93WQFE01U_w8JrYY5MmZff05P4",
+    "refreshToken": "37efee81-cb26-4a4f-9ff6-e823f82d8d38",
+    "expiresIn": 1781807832442
+}
+2026-06-18 18:07:12 INFO ================================================================================
+2026-06-18 18:07:12 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:12 INFO [32mpytest tests/api/test_user_api.py::TestUserApi::test_get_all_users[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user?pageSize=5&page=3&roles=ADMIN&createdAt=desc' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDMyLCJleHAiOjE3ODE4MDc4MzJ9.aG3IGuhdea2oLJGwU93WQFE01U_w8JrYY5MmZff05P4' \
+-H 'Cookie: refresh_token=37efee81-cb26-4a4f-9ff6-e823f82d8d38' \
+
+2026-06-18 18:07:12 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:12 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "users": [
+        {
+            "id": "77177419-f79e-4df8-a8cd-d652e4db4071",
+            "email": "test_e2cc17402391435092218a22bbb4f134@gmail.com",
+            "fullName": "Rebecca Rodriguez",
+            "password": "$2b$10$860fjicoBqvD26nmumqQsOpgjSCsClGclyaEHulVxQcYlLbGmSP7S",
+            "createdAt": "2026-06-15T18:11:38.421Z",
+            "updatedAt": "2026-06-15T18:11:38.583Z",
+            "verified": true,
+            "banned": false,
+            "roles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "cc552d2c-5852-4571-87f8-31d0768b44f4",
+            "email": "larrybrown@example.org",
+            "fullName": "Mr. Daniel Jackson III",
+            "password": "$2b$10$ihUAvLB3M16LUxBo5wTIm..xAvBdIk0HQJYs/hVkXhJWo.w6puYwS",
+            "createdAt": "2026-06-15T17:56:52.836Z",
+            "updatedAt": "2026-06-15T17:56:53.053Z",
+            "verified": true,
+            "banned": false,
+            "roles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "cc86d183-fa6b-4e19-aa42-aed5768fa646",
+            "email": "andreajones@example.org",
+            "fullName": "Dennis Miller",
+            "password": "$2b$10$UKbIEAyD.FxvHDiX1rbJmeR1E6NNFukku/4OZHgqvbH.KMEqxTwVS",
+            "createdAt": "2026-06-15T17:49:46.629Z",
+            "updatedAt": "2026-06-15T17:49:46.809Z",
+            "verified": true,
+            "banned": false,
+            "roles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "e9f04586-fca0-4fd0-8eae-a5349da758a9",
+            "email": "ianhendrix@example.org",
+            "fullName": "Jorge Hall",
+            "password": "$2b$10$sKUP.uzQkGCM6N6owwBVEex7hPYpkHOVMi0/aKe1RhdtZPutigIMG",
+            "createdAt": "2026-06-15T17:41:14.931Z",
+            "updatedAt": "2026-06-15T17:41:15.166Z",
+            "verified": true,
+            "banned": false,
+            "roles": [
+                "ADMIN"
+            ]
+        },
+        {
+            "id": "c829965b-79b0-4703-b60f-18701fecdb9f",
+            "email": "reesejames@example.org",
+            "fullName": "Edward Cooper",
+            "password": "$2b$10$RPmIuXnBPQsLbWafIbEbI.Pa45iVTzfL41O4cOLQ.bCDUgEof/u7S",
+            "createdAt": "2026-06-15T17:33:32.629Z",
+            "updatedAt": "2026-06-15T17:33:32.783Z",
+            "verified": true,
+            "banned": false,
+            "roles": [
+                "ADMIN"
+            ]
+        }
+    ],
+    "count": 941,
+    "page": 3,
+    "pageSize": 5,
+    "pageCount": 189
+}
+2026-06-18 18:07:12 INFO ================================================================================

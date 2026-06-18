@@ -1,0 +1,122 @@
+2026-06-18 18:06:28 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:28 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg3LCJleHAiOjE3ODE4MDc3ODd9.IdwpVDjYwHFKfRBfaT4R81jiqGZ5p9WDa6Xo62ZnS9s' \
+-H 'Cookie: refresh_token=a3b9d563-62a6-4413-853c-a2dcf8a00d55' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:28 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:28 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg4LCJleHAiOjE3ODE4MDc3ODh9.FW1lmTvc9_OwVxXDvOtPO54J-13vi3KD5yLg1ApMfxc",
+    "refreshToken": "eba5c2a6-4bc5-454e-9a96-a6cd24bae59e",
+    "expiresIn": 1781807788243
+}
+2026-06-18 18:06:28 INFO ================================================================================
+
+2026-06-18 18:06:28 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:28 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg4LCJleHAiOjE3ODE4MDc3ODh9.FW1lmTvc9_OwVxXDvOtPO54J-13vi3KD5yLg1ApMfxc' \
+-H 'Content-Length: 261' \
+-d '{"name": "Cloned client-driven array", "imageUrl": "https://dummyimage.com/400x600", "price": 427, "description": "Third brother guess term. Hair apply rest green Democrat appear sing. Believe show describe.", "location": "MSK", "published": true, "genreId": 9}' 
+
+2026-06-18 18:06:28 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:28 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57241,
+    "name": "Cloned client-driven array",
+    "price": 427,
+    "description": "Third brother guess term. Hair apply rest green Democrat appear sing. Believe show describe.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:28.450Z",
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:28 INFO ================================================================================
+2026-06-18 18:06:28 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:28 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57241' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg4LCJleHAiOjE3ODE4MDc3ODh9.FW1lmTvc9_OwVxXDvOtPO54J-13vi3KD5yLg1ApMfxc' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:28 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:28 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57241,
+    "name": "Cloned client-driven array",
+    "price": 427,
+    "description": "Third brother guess term. Hair apply rest green Democrat appear sing. Believe show describe.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:28.450Z",
+    "reviews": [],
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:28 INFO ================================================================================
+
+2026-06-18 18:06:29 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:29 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_delete_movie[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies/57241' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg4LCJleHAiOjE3ODE4MDc3ODh9.FW1lmTvc9_OwVxXDvOtPO54J-13vi3KD5yLg1ApMfxc' \
+
+2026-06-18 18:06:29 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:29 INFO 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Фильм не найден",
+    "error": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-18 18:06:29 INFO ================================================================================

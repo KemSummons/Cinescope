@@ -1,0 +1,166 @@
+2026-06-18 18:06:24 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:24 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_unauthorized_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc5LCJleHAiOjE3ODE4MDc3Nzl9.2cIpI6oUelDg4k58E_I7FF2rPHPx6v8RDcYk6cpOjeA' \
+-H 'Cookie: refresh_token=1bd38022-246f-4743-88b1-8b3f7ac8b31f' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:24 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:24 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgzLCJleHAiOjE3ODE4MDc3ODN9.egFwT3_k-0pBIzZIDaziyTUXhJ2tHBUy-xY6dsvfqOU",
+    "refreshToken": "1f760ae9-1adc-4fe7-82af-cdb1c6675c6b",
+    "expiresIn": 1781807783945
+}
+2026-06-18 18:06:24 INFO ================================================================================
+
+2026-06-18 18:06:24 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:24 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_unauthorized_user (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTgzLCJleHAiOjE3ODE4MDc3ODN9.egFwT3_k-0pBIzZIDaziyTUXhJ2tHBUy-xY6dsvfqOU' \
+-H 'Content-Length: 367' \
+-d '{"name": "Down-sized contextually-based task-force", "imageUrl": "https://placekitten.com/400/600", "price": 252, "description": "Forward let maintain tree. Defense fast trial consider while. Cold eye send head whether your open cold. Enjoy owner health cup while.\nSing least apply for page. Dog certain car his.", "location": "MSK", "published": true, "genreId": 4}' 
+
+2026-06-18 18:06:24 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:24 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57239,
+    "name": "Down-sized contextually-based task-force",
+    "price": 252,
+    "description": "Forward let maintain tree. Defense fast trial consider while. Cold eye send head whether your open cold. Enjoy owner health cup while.\nSing least apply for page. Dog certain car his.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 4,
+    "createdAt": "2026-06-18T18:06:24.148Z",
+    "genre": {
+        "name": "Криминал"
+    }
+}
+2026-06-18 18:06:24 INFO ================================================================================
+
+2026-06-18 18:06:25 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:25 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_unauthorized_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:25 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:25 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg1LCJleHAiOjE3ODE4MDc3ODV9.QdbbqjxLH5MxPJLATYsGVsGjPsOJxv3yjRyukL7mbEc",
+    "refreshToken": "4489f774-03bf-4b00-b7cb-88260c8e5446",
+    "expiresIn": 1781807785150
+}
+2026-06-18 18:06:25 INFO ================================================================================
+2026-06-18 18:06:26 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:26 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_unauthorized_user[0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies/57239' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+
+2026-06-18 18:06:26 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:26 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57239,
+    "name": "Down-sized contextually-based task-force",
+    "price": 252,
+    "description": "Forward let maintain tree. Defense fast trial consider while. Cold eye send head whether your open cold. Enjoy owner health cup while.\nSing least apply for page. Dog certain car his.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 4,
+    "createdAt": "2026-06-18T18:06:24.148Z",
+    "reviews": [],
+    "genre": {
+        "name": "Криминал"
+    }
+}
+2026-06-18 18:06:26 INFO ================================================================================
+
+2026-06-18 18:06:26 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:26 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movie_for_unauthorized_user[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57239' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg1LCJleHAiOjE3ODE4MDc3ODV9.QdbbqjxLH5MxPJLATYsGVsGjPsOJxv3yjRyukL7mbEc' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:26 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:26 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57239,
+    "name": "Down-sized contextually-based task-force",
+    "price": 252,
+    "description": "Forward let maintain tree. Defense fast trial consider while. Cold eye send head whether your open cold. Enjoy owner health cup while.\nSing least apply for page. Dog certain car his.",
+    "imageUrl": "https://placekitten.com/400/600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 4,
+    "createdAt": "2026-06-18T18:06:24.148Z",
+    "reviews": [],
+    "genre": {
+        "name": "Криминал"
+    }
+}
+2026-06-18 18:06:26 INFO ================================================================================

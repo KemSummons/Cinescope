@@ -1,0 +1,174 @@
+2026-06-18 18:06:29 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:29 INFO [32mpytest tests/api/test_movie_api.py::TestMovieAPI::test_get_movies_with_parametrize[Test # 3][0m
+curl -X GET 'https://api.dev-cinescope.coconutqa.ru/movies?minPrice=1&maxPrice=1000&locations=MSK&genreId=7' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTg4LCJleHAiOjE3ODE4MDc3ODh9.FW1lmTvc9_OwVxXDvOtPO54J-13vi3KD5yLg1ApMfxc' \
+
+2026-06-18 18:06:29 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:29 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "movies": [
+        {
+            "id": 621,
+            "name": "Explain stand.",
+            "description": "Computer although fine address. Its expert ok minute and.\nRequire near poor you of. Not five mother later picture deal.",
+            "genreId": 7,
+            "imageUrl": "https://placekitten.com/383/274",
+            "price": 786,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-05-21T09:53:03.004Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 1304,
+            "name": "Result over there hope.",
+            "description": "Serious glass create different establish party important. Hold agree growth pay beautiful modern.\nFish than always send. Right article peace oil agreement issue south.",
+            "genreId": 7,
+            "imageUrl": "https://picsum.photos/903/31",
+            "price": 948,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-05-27T17:17:39.178Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 1371,
+            "name": "Raise purpose.",
+            "description": "During surface man bit happen others. Many include name financial deep market.\nSometimes person suddenly.\nModel economic child job yard plant plan me. Area clear mother especially movement fight.",
+            "genreId": 7,
+            "imageUrl": "https://dummyimage.com/375x689",
+            "price": 848,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-05-27T20:20:43.182Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 2070,
+            "name": "Сокращенная и локальная парадигма Темно-голубой",
+            "description": "Рот вперед новый правый правильный запретить.",
+            "genreId": 7,
+            "imageUrl": null,
+            "price": 845,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-06-22T00:02:15.013Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 2113,
+            "name": "Opportunity.",
+            "description": "Change hit yard military little worry. Push lay soon thank sit already. Gun particular return.\nAnything friend have interesting sign husband. Hard may much player goal writer.",
+            "genreId": 7,
+            "imageUrl": "https://picsum.photos/823/1017",
+            "price": 422,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-06-22T11:22:43.971Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 3740,
+            "name": "Тестовое кино - Virtual bi-directional migration",
+            "description": "Gas sea you collection attack. Goal more with kitchen. Growth scientist while chance reduce seek family.",
+            "genreId": 7,
+            "imageUrl": "https://placekitten.com/106/787",
+            "price": 457,
+            "rating": 2,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-11-21T09:39:42.240Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 4019,
+            "name": "Position body.",
+            "description": "Administration write all across chair TV soon. Close surface work out stock decide quickly.\nBoard boy than future know. Check show machine century beautiful go.",
+            "genreId": 7,
+            "imageUrl": "https://placekitten.com/107/30",
+            "price": 128,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-11-24T09:05:04.522Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 4191,
+            "name": "Team five.",
+            "description": "Manager image official character image eye. House involve scientist senior indicate full. Already box but need.",
+            "genreId": 7,
+            "imageUrl": "https://dummyimage.com/120x29",
+            "price": 908,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-11-24T13:30:56.025Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 4203,
+            "name": "Not business woman.",
+            "description": "Gas actually economy consider recent. Face place certain sport meeting party kind however.",
+            "genreId": 7,
+            "imageUrl": "https://placekitten.com/835/725",
+            "price": 391,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-11-24T13:36:09.717Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        },
+        {
+            "id": 4246,
+            "name": "Chance south form school.",
+            "description": "Skin main billion. Stand expert around. Just born well serious their.\nYour present amount language. Sure bill that far.",
+            "genreId": 7,
+            "imageUrl": "https://placekitten.com/885/838",
+            "price": 236,
+            "rating": 0,
+            "location": "MSK",
+            "published": true,
+            "createdAt": "2025-11-24T13:53:00.900Z",
+            "genre": {
+                "name": "Мюзикл"
+            }
+        }
+    ],
+    "count": 103,
+    "page": 1,
+    "pageSize": 10,
+    "pageCount": 11
+}
+2026-06-18 18:06:29 INFO ================================================================================

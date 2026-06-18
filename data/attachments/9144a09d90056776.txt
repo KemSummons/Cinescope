@@ -1,0 +1,71 @@
+2026-06-18 18:06:14 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:14 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_logout_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcyLCJleHAiOjE3ODE4MDc3NzJ9.IR1idIZ1j3Mjt4_ECU9Cksg0JMHwv4-FHn5BoEorGO0' \
+-H 'Cookie: refresh_token=13ef795b-4c23-4f00-9451-bd4aea3416b7' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:14 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:14 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc0LCJleHAiOjE3ODE4MDc3NzR9.-Zy8lB9GsJ5RMADhtfUb48r4L-yQ_1PktQVzEMHbaCw",
+    "refreshToken": "b1696b70-1699-4b33-a730-e8cf12c4bc8c",
+    "expiresIn": 1781807774227
+}
+2026-06-18 18:06:14 INFO ================================================================================
+2026-06-18 18:06:14 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:14 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_logout_user[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/logout/' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTc0LCJleHAiOjE3ODE4MDc3NzR9.-Zy8lB9GsJ5RMADhtfUb48r4L-yQ_1PktQVzEMHbaCw' \
+-H 'Cookie: refresh_token=b1696b70-1699-4b33-a730-e8cf12c4bc8c' \
+
+2026-06-18 18:06:14 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:14 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+OK
+2026-06-18 18:06:14 INFO ================================================================================
+
+2026-06-18 18:06:14 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:14 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_logout_user[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+
+2026-06-18 18:06:14 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:14 INFO 	STATUS_CODE: [31m401[0m
+	DATA: [31m{
+    "message": "Unauthorized",
+    "statusCode": 401
+}[0m
+2026-06-18 18:06:14 INFO ================================================================================

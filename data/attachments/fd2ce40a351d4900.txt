@@ -1,0 +1,104 @@
+2026-06-18 18:07:30 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:30 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_delete_already_deleted_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:30 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:30 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUwLCJleHAiOjE3ODE4MDc4NTB9.qRMJY8GJoM76pAdc4NSOkbKPnAHBC1swXj8m9DQc5Mg",
+    "refreshToken": "0754fc31-47d7-4986-a23b-ad06947c006e",
+    "expiresIn": 1781807850221
+}
+2026-06-18 18:07:30 INFO ================================================================================
+2026-06-18 18:07:30 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:30 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_delete_already_deleted_user[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUwLCJleHAiOjE3ODE4MDc4NTB9.qRMJY8GJoM76pAdc4NSOkbKPnAHBC1swXj8m9DQc5Mg' \
+-H 'Cookie: refresh_token=0754fc31-47d7-4986-a23b-ad06947c006e' \
+-H 'Content-Length: 177' \
+-d '{"email": "keknr3c85kh@gmail.com", "fullName": "Catherine Spencer", "password": "^BMX9vXcl", "passwordRepeat": "^BMX9vXcl", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:30 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:30 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "5c8f88d2-6879-4683-a6ff-2d2082c3036e",
+    "email": "keknr3c85kh@gmail.com",
+    "fullName": "Catherine Spencer",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:30.622Z"
+}
+2026-06-18 18:07:30 INFO ================================================================================
+
+2026-06-18 18:07:30 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:30 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_delete_already_deleted_user[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/5c8f88d2-6879-4683-a6ff-2d2082c3036e' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUwLCJleHAiOjE3ODE4MDc4NTB9.qRMJY8GJoM76pAdc4NSOkbKPnAHBC1swXj8m9DQc5Mg' \
+-H 'Cookie: refresh_token=0754fc31-47d7-4986-a23b-ad06947c006e' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:30 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:30 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:30 INFO ================================================================================
+
+2026-06-18 18:07:31 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:31 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_delete_already_deleted_user[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/5c8f88d2-6879-4683-a6ff-2d2082c3036e' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDUwLCJleHAiOjE3ODE4MDc4NTB9.qRMJY8GJoM76pAdc4NSOkbKPnAHBC1swXj8m9DQc5Mg' \
+-H 'Cookie: refresh_token=0754fc31-47d7-4986-a23b-ad06947c006e' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:31 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:31 INFO 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-18 18:07:31 INFO ================================================================================

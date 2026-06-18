@@ -1,0 +1,81 @@
+2026-06-18 18:07:04 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:04 INFO [32mpytest tests/api/test_user_api.py::TestUserApi::test_create_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:04 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:04 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDI0LCJleHAiOjE3ODE4MDc4MjR9.sbdfGbym3kB8jrD-edcm0WSiF1UzlyeMd4ACdDmTLso",
+    "refreshToken": "0a414613-46b8-4b2a-ab58-21e8fbb60122",
+    "expiresIn": 1781807824643
+}
+2026-06-18 18:07:04 INFO ================================================================================
+2026-06-18 18:07:05 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:05 INFO [32mpytest tests/api/test_user_api.py::TestUserApi::test_create_user[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDI0LCJleHAiOjE3ODE4MDc4MjR9.sbdfGbym3kB8jrD-edcm0WSiF1UzlyeMd4ACdDmTLso' \
+-H 'Cookie: refresh_token=0a414613-46b8-4b2a-ab58-21e8fbb60122' \
+-H 'Content-Length: 195' \
+-d '{"email": "kek7t40sju7@gmail.com", "fullName": "Rachel Brooks", "password": "@^#H619v9a^|4MGn1oUI", "passwordRepeat": "@^#H619v9a^|4MGn1oUI", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:05 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:05 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "e75711db-9914-48df-bea8-b49118f0db63",
+    "email": "kek7t40sju7@gmail.com",
+    "fullName": "Rachel Brooks",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:05.038Z"
+}
+2026-06-18 18:07:05 INFO ================================================================================
+2026-06-18 18:07:05 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:05 INFO [32mpytest tests/api/test_user_api.py::TestUserApi::test_create_user (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/e75711db-9914-48df-bea8-b49118f0db63' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDI0LCJleHAiOjE3ODE4MDc4MjR9.sbdfGbym3kB8jrD-edcm0WSiF1UzlyeMd4ACdDmTLso' \
+-H 'Cookie: refresh_token=0a414613-46b8-4b2a-ab58-21e8fbb60122' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:05 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:05 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:05 INFO ================================================================================

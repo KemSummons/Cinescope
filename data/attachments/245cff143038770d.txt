@@ -1,0 +1,238 @@
+2026-06-18 18:06:48 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:48 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA3LCJleHAiOjE3ODE4MDc4MDd9.AMBiQoX9BmCrKAJzwKXjUdpl-AUG2gUdgY3P52NDmZw' \
+-H 'Cookie: refresh_token=1cb0c2ea-8908-41e6-b427-c5fc93daaf3b' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:48 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:48 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA4LCJleHAiOjE3ODE4MDc4MDh9.A9wV_PzWYmO34THQm1pxjFyHZvKxsNfhGoyOWIb_xAM",
+    "refreshToken": "f13203a5-c453-4d8c-8f9f-d60f3779296d",
+    "expiresIn": 1781807808447
+}
+2026-06-18 18:06:48 INFO ================================================================================
+
+2026-06-18 18:06:48 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:48 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA4LCJleHAiOjE3ODE4MDc4MDh9.A9wV_PzWYmO34THQm1pxjFyHZvKxsNfhGoyOWIb_xAM' \
+-H 'Content-Length: 313' \
+-d '{"name": "Compatible responsive core", "imageUrl": "https://dummyimage.com/400x600", "price": 335, "description": "Cost thing stand book room. I stage television pretty change report race. Investment federal commercial detail if poor. Under heart institution.", "location": "SPB", "published": true, "genreId": 9}' 
+
+2026-06-18 18:06:48 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:48 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57245,
+    "name": "Compatible responsive core",
+    "price": 335,
+    "description": "Cost thing stand book room. I stage television pretty change report race. Investment federal commercial detail if poor. Under heart institution.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "SPB",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:48.656Z",
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:48 INFO ================================================================================
+
+2026-06-18 18:06:49 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:49 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:49 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:49 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA5LCJleHAiOjE3ODE4MDc4MDl9.xDE_8CpaUCkDq-7fdpkD9kMdbbbG1JN81o19aa0kFoQ",
+    "refreshToken": "de3e3fed-42cc-4d83-9620-c6b4d594e62b",
+    "expiresIn": 1781807809446
+}
+2026-06-18 18:06:49 INFO ================================================================================
+
+2026-06-18 18:06:49 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:49 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA5LCJleHAiOjE3ODE4MDc4MDl9.xDE_8CpaUCkDq-7fdpkD9kMdbbbG1JN81o19aa0kFoQ' \
+-H 'Cookie: refresh_token=de3e3fed-42cc-4d83-9620-c6b4d594e62b' \
+-H 'Content-Length: 170' \
+-d '{"email": "kekibmgwo8q@gmail.com", "fullName": "Jerry Taylor", "password": "Z66cvixp", "passwordRepeat": "Z66cvixp", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:49 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:49 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "a778c625-3d55-44ab-baa9-68a99c767313",
+    "email": "kekibmgwo8q@gmail.com",
+    "fullName": "Jerry Taylor",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:49.834Z"
+}
+2026-06-18 18:06:49 INFO ================================================================================
+
+2026-06-18 18:06:50 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:50 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 58' \
+-d '{"email": "kekibmgwo8q@gmail.com", "password": "Z66cvixp"}' 
+
+2026-06-18 18:06:50 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:50 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "a778c625-3d55-44ab-baa9-68a99c767313",
+        "email": "kekibmgwo8q@gmail.com",
+        "fullName": "Jerry Taylor",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NzhjNjI1LTNkNTUtNDRhYi1iYWE5LTY4YTk5Yzc2NzMxMyIsImVtYWlsIjoia2VraWJtZ3dvOHFAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEwLCJleHAiOjE3ODE4MDc4MTB9.n5t_AqFgansKJ3y6qyud3RlfwIUBL5_m7RRV6ds9Jds",
+    "refreshToken": "1c62a89c-1176-4fe3-99d9-25b639fc4466",
+    "expiresIn": 1781807810881
+}
+2026-06-18 18:06:50 INFO ================================================================================
+2026-06-18 18:06:51 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:51 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules[0m
+curl -X PATCH 'https://api.dev-cinescope.coconutqa.ru/movies/57245' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImE3NzhjNjI1LTNkNTUtNDRhYi1iYWE5LTY4YTk5Yzc2NzMxMyIsImVtYWlsIjoia2VraWJtZ3dvOHFAZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEwLCJleHAiOjE3ODE4MDc4MTB9.n5t_AqFgansKJ3y6qyud3RlfwIUBL5_m7RRV6ds9Jds' \
+-H 'Content-Length: 66' \
+-d '{"name": "Public-key reciprocal core", "price": 118, "genreId": 9}' 
+
+2026-06-18 18:06:51 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:51 INFO 	STATUS_CODE: [31m403[0m
+	DATA: [31m{
+    "message": "Forbidden resource",
+    "error": "Forbidden",
+    "statusCode": 403
+}[0m
+2026-06-18 18:06:51 INFO ================================================================================
+2026-06-18 18:06:52 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:52 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/a778c625-3d55-44ab-baa9-68a99c767313' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA5LCJleHAiOjE3ODE4MDc4MDl9.xDE_8CpaUCkDq-7fdpkD9kMdbbbG1JN81o19aa0kFoQ' \
+-H 'Cookie: refresh_token=de3e3fed-42cc-4d83-9620-c6b4d594e62b' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:52 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:52 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:52 INFO ================================================================================
+
+2026-06-18 18:06:52 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:52 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_update_movie_without_rules (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57245' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA4LCJleHAiOjE3ODE4MDc4MDh9.A9wV_PzWYmO34THQm1pxjFyHZvKxsNfhGoyOWIb_xAM' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:52 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:52 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57245,
+    "name": "Compatible responsive core",
+    "price": 335,
+    "description": "Cost thing stand book room. I stage television pretty change report race. Investment federal commercial detail if poor. Under heart institution.",
+    "imageUrl": "https://dummyimage.com/400x600",
+    "location": "SPB",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:48.656Z",
+    "reviews": [],
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:52 INFO ================================================================================

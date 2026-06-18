@@ -1,0 +1,64 @@
+2026-06-18 18:06:46 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:46 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_body_creation (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTk3LCJleHAiOjE3ODE4MDc3OTd9.8xsa-POzS6Eijw9OYEEsrjUGL5LLlpa9fS1QrkIYzJ0' \
+-H 'Cookie: refresh_token=9c6cc71e-0e3d-4bc1-a22c-7bd0355959a2' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:46 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:46 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA2LCJleHAiOjE3ODE4MDc4MDZ9.l09wTQkvPNxSESbO_N294Asa8mdF3IF699QNcP0p5mY",
+    "refreshToken": "c8bd3415-4202-4bcd-b478-6b276e57ebf4",
+    "expiresIn": 1781807806626
+}
+2026-06-18 18:06:46 INFO ================================================================================
+2026-06-18 18:06:46 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:46 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_invalid_body_creation[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDA2LCJleHAiOjE3ODE4MDc4MDZ9.l09wTQkvPNxSESbO_N294Asa8mdF3IF699QNcP0p5mY' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:46 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:46 INFO 	STATUS_CODE: [31m400[0m
+	DATA: [31m{
+    "message": [
+        "name should not be empty",
+        "Поле name должно быть строкой",
+        "Поле price должно быть числом",
+        "Поле description должно быть строкой",
+        "Поле location должно быть одним из: MSK, SPB",
+        "Поле location должно быть строкой",
+        "Поле published должно быть булевым значением",
+        "Поле genreId должно быть числом"
+    ],
+    "error": "Bad Request",
+    "statusCode": 400
+}[0m
+2026-06-18 18:06:46 INFO ================================================================================

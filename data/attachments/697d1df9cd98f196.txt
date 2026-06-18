@@ -1,0 +1,18 @@
+2026-06-18 18:07:39 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:39 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_get_all_users_unauthorized[0m
+curl -X GET 'https://auth.dev-cinescope.coconutqa.ru/user?page=1&pageSize=3' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+
+2026-06-18 18:07:39 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:39 INFO 	STATUS_CODE: [31m401[0m
+	DATA: [31m{
+    "message": "Unauthorized",
+    "statusCode": 401
+}[0m
+2026-06-18 18:07:39 INFO ================================================================================

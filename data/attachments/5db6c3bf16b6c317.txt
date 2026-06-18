@@ -1,0 +1,107 @@
+2026-06-18 18:07:24 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:24 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_update_user_with_invalid_roles (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:24 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:24 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDQ0LCJleHAiOjE3ODE4MDc4NDR9.84RB426JGMbaU3BsaNN5cICW_Ogrw_ZRw2vXnzfO70Y",
+    "refreshToken": "173ebedb-1239-465b-bcdb-dbec07aa95d4",
+    "expiresIn": 1781807844120
+}
+2026-06-18 18:07:24 INFO ================================================================================
+2026-06-18 18:07:24 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:24 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_update_user_with_invalid_roles[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDQ0LCJleHAiOjE3ODE4MDc4NDR9.84RB426JGMbaU3BsaNN5cICW_Ogrw_ZRw2vXnzfO70Y' \
+-H 'Cookie: refresh_token=173ebedb-1239-465b-bcdb-dbec07aa95d4' \
+-H 'Content-Length: 187' \
+-d '{"email": "keklgw3nv4s@gmail.com", "fullName": "Amanda Hutchinson", "password": "2vQKT%TDa6G#BX", "passwordRepeat": "2vQKT%TDa6G#BX", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:07:24 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:24 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "6c2b7864-109d-45c3-981d-27c290c73ee4",
+    "email": "keklgw3nv4s@gmail.com",
+    "fullName": "Amanda Hutchinson",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:07:24.519Z"
+}
+2026-06-18 18:07:24 INFO ================================================================================
+
+2026-06-18 18:07:24 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:24 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_update_user_with_invalid_roles[0m
+curl -X PATCH 'https://auth.dev-cinescope.coconutqa.ru/user/6c2b7864-109d-45c3-981d-27c290c73ee4' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDQ0LCJleHAiOjE3ODE4MDc4NDR9.84RB426JGMbaU3BsaNN5cICW_Ogrw_ZRw2vXnzfO70Y' \
+-H 'Cookie: refresh_token=173ebedb-1239-465b-bcdb-dbec07aa95d4' \
+-H 'Content-Length: 27' \
+-d '{"roles": ["INVALID_ROLE"]}' 
+
+2026-06-18 18:07:24 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:24 INFO 	STATUS_CODE: [31m400[0m
+	DATA: [31m{
+    "message": [
+        "Каждое значение массиве roles должно быть одним из следующих значений: USER, ADMIN, SUPER_ADMIN"
+    ],
+    "error": "Bad Request",
+    "statusCode": 400
+}[0m
+2026-06-18 18:07:24 INFO ================================================================================
+2026-06-18 18:07:25 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:25 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_update_user_with_invalid_roles (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/6c2b7864-109d-45c3-981d-27c290c73ee4' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDQ0LCJleHAiOjE3ODE4MDc4NDR9.84RB426JGMbaU3BsaNN5cICW_Ogrw_ZRw2vXnzfO70Y' \
+-H 'Cookie: refresh_token=173ebedb-1239-465b-bcdb-dbec07aa95d4' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:25 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:25 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:07:25 INFO ================================================================================

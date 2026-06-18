@@ -1,0 +1,237 @@
+2026-06-18 18:06:53 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:53 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEyLCJleHAiOjE3ODE4MDc4MTJ9.faZmbdjDd9zFSz3ofLDTQfHedWOiRt_6RuBJrNRCCC8' \
+-H 'Cookie: refresh_token=623c2c7d-d355-41f0-9d87-4170ab9b6aab' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:53 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:53 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEzLCJleHAiOjE3ODE4MDc4MTN9.UWwzDb3KcY9H6H24crBFmxgerfQ7GDlDt0wUoQzM610",
+    "refreshToken": "401d90a6-d6e0-47bf-b3d6-d0ea302736a5",
+    "expiresIn": 1781807813529
+}
+2026-06-18 18:06:53 INFO ================================================================================
+
+2026-06-18 18:06:53 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:53 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (setup)[0m
+curl -X POST 'https://api.dev-cinescope.coconutqa.ru/movies' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEzLCJleHAiOjE3ODE4MDc4MTN9.UWwzDb3KcY9H6H24crBFmxgerfQ7GDlDt0wUoQzM610' \
+-H 'Content-Length: 306' \
+-d '{"name": "Open-source human-resource system engine", "imageUrl": "https://picsum.photos/400/600", "price": 121, "description": "Phone right commercial price indeed mouth weight. Piece avoid month fight.\nReflect author court glass. Start which air ask.", "location": "MSK", "published": true, "genreId": 9}' 
+
+2026-06-18 18:06:53 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:53 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": 57246,
+    "name": "Open-source human-resource system engine",
+    "price": 121,
+    "description": "Phone right commercial price indeed mouth weight. Piece avoid month fight.\nReflect author court glass. Start which air ask.",
+    "imageUrl": "https://picsum.photos/400/600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:53.733Z",
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:53 INFO ================================================================================
+
+2026-06-18 18:06:54 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:54 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:54 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:54 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE0LCJleHAiOjE3ODE4MDc4MTR9.0Snt0rLHcZUAewnL4LI8ifYh8YCbQcofs0yXNgUvOh8",
+    "refreshToken": "e6dffc40-d62f-49f8-b97f-0112c8908010",
+    "expiresIn": 1781807814619
+}
+2026-06-18 18:06:54 INFO ================================================================================
+
+2026-06-18 18:06:55 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:55 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE0LCJleHAiOjE3ODE4MDc4MTR9.0Snt0rLHcZUAewnL4LI8ifYh8YCbQcofs0yXNgUvOh8' \
+-H 'Cookie: refresh_token=e6dffc40-d62f-49f8-b97f-0112c8908010' \
+-H 'Content-Length: 181' \
+-d '{"email": "kekrqejbeam@gmail.com", "fullName": "Carolyn Hampton", "password": "Hc6*|sE|aV20", "passwordRepeat": "Hc6*|sE|aV20", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:55 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:55 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "5a262fe0-18e6-4014-8b81-6dd0ffb81121",
+    "email": "kekrqejbeam@gmail.com",
+    "fullName": "Carolyn Hampton",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:55.024Z"
+}
+2026-06-18 18:06:55 INFO ================================================================================
+
+2026-06-18 18:06:56 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:56 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 62' \
+-d '{"email": "kekrqejbeam@gmail.com", "password": "Hc6*|sE|aV20"}' 
+
+2026-06-18 18:06:56 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:56 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "5a262fe0-18e6-4014-8b81-6dd0ffb81121",
+        "email": "kekrqejbeam@gmail.com",
+        "fullName": "Carolyn Hampton",
+        "roles": [
+            "USER"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhMjYyZmUwLTE4ZTYtNDAxNC04YjgxLTZkZDBmZmI4MTEyMSIsImVtYWlsIjoia2VrcnFlamJlYW1AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE1LCJleHAiOjE3ODE4MDc4MTV9.V_dNrrvFEaIoU2yP7AZVDn3vonOCuMp1q7f4sxJPzMk",
+    "refreshToken": "9fbe3b12-339d-489a-8617-9db17c69d7e8",
+    "expiresIn": 1781807816018
+}
+2026-06-18 18:06:56 INFO ================================================================================
+2026-06-18 18:06:56 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:56 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57246' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVhMjYyZmUwLTE4ZTYtNDAxNC04YjgxLTZkZDBmZmI4MTEyMSIsImVtYWlsIjoia2VrcnFlamJlYW1AZ21haWwuY29tIiwicm9sZXMiOlsiVVNFUiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE1LCJleHAiOjE3ODE4MDc4MTV9.V_dNrrvFEaIoU2yP7AZVDn3vonOCuMp1q7f4sxJPzMk' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:56 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:56 INFO 	STATUS_CODE: [31m403[0m
+	DATA: [31m{
+    "message": "Forbidden resource",
+    "error": "Forbidden",
+    "statusCode": 403
+}[0m
+2026-06-18 18:06:56 INFO ================================================================================
+2026-06-18 18:06:57 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:57 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/5a262fe0-18e6-4014-8b81-6dd0ffb81121' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE0LCJleHAiOjE3ODE4MDc4MTR9.0Snt0rLHcZUAewnL4LI8ifYh8YCbQcofs0yXNgUvOh8' \
+-H 'Cookie: refresh_token=e6dffc40-d62f-49f8-b97f-0112c8908010' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:57 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:57 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:57 INFO ================================================================================
+
+2026-06-18 18:06:57 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:57 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_movie_without_rules (teardown)[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/57246' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEzLCJleHAiOjE3ODE4MDc4MTN9.UWwzDb3KcY9H6H24crBFmxgerfQ7GDlDt0wUoQzM610' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:57 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:57 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "id": 57246,
+    "name": "Open-source human-resource system engine",
+    "price": 121,
+    "description": "Phone right commercial price indeed mouth weight. Piece avoid month fight.\nReflect author court glass. Start which air ask.",
+    "imageUrl": "https://picsum.photos/400/600",
+    "location": "MSK",
+    "published": true,
+    "rating": 0,
+    "genreId": 9,
+    "createdAt": "2026-06-18T18:06:53.733Z",
+    "reviews": [],
+    "genre": {
+        "name": "Анимация"
+    }
+}
+2026-06-18 18:06:57 INFO ================================================================================

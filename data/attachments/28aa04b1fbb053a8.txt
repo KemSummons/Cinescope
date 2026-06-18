@@ -1,0 +1,65 @@
+2026-06-18 18:07:16 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:16 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_empty_body (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:07:16 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:16 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM2LCJleHAiOjE3ODE4MDc4MzZ9.q7IWizaxFJ6x5KoGdCOuOf2BV7xOPqh4n_nRycDyFyw",
+    "refreshToken": "e775ced5-0503-4228-a78f-a1e5131e0701",
+    "expiresIn": 1781807836332
+}
+2026-06-18 18:07:16 INFO ================================================================================
+2026-06-18 18:07:16 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:07:16 INFO [32mpytest tests/api/test_user_api.py::TestNegativeUserApi::test_create_user_with_empty_body[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/user' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDM2LCJleHAiOjE3ODE4MDc4MzZ9.q7IWizaxFJ6x5KoGdCOuOf2BV7xOPqh4n_nRycDyFyw' \
+-H 'Cookie: refresh_token=e775ced5-0503-4228-a78f-a1e5131e0701' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:07:16 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:07:16 INFO 	STATUS_CODE: [31m400[0m
+	DATA: [31m{
+    "message": [
+        "Минимальная длина fullName 5 символов",
+        "Поле fullName должно быть строкой",
+        "Поле email некорректно",
+        "Поле email должно быть строкой",
+        "Максимальная длина пароля 32 символа",
+        "Минимальная длина пароля 8 символов",
+        "Пароль должен быть строкой",
+        "password must match /^(?=.*[a-zA-Zа-яА-Я])(?=.*\\d)[a-zA-Zа-яА-Я\\d?@#$%^&*_\\-+()\\[\\]{}><\\\\/\\\\|\"'.,:;]{8,20}$/ regular expression",
+        "Поле verified должно быть булевым значением",
+        "Поле banned должно быть булевым значением"
+    ],
+    "error": "Bad Request",
+    "statusCode": 400
+}[0m
+2026-06-18 18:07:16 INFO ================================================================================

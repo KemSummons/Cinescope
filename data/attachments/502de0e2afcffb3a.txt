@@ -1,0 +1,79 @@
+2026-06-18 18:06:10 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:10 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_user (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:10 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:10 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcwLCJleHAiOjE3ODE4MDc3NzB9.Hn4j7WWdryRd_eE4hWe6FMXDujETtZmuJhxZvdlIGs0",
+    "refreshToken": "cfb7ce99-75b6-41e6-bc4c-3ddea199cbb6",
+    "expiresIn": 1781807770162
+}
+2026-06-18 18:06:10 INFO ================================================================================
+2026-06-18 18:06:11 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:11 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_user[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/register' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Content-Length: 176' \
+-d '{"email": "kekfzz5yyz5@gmail.com", "fullName": "Christopher Deleon", "password": "S&o1KYlu", "passwordRepeat": "S&o1KYlu", "roles": ["USER"], "verified": true, "banned": false}' 
+
+2026-06-18 18:06:11 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:11 INFO 	STATUS_CODE: [32m201[0m
+	DATA:
+{
+    "id": "05809503-9d8f-423b-a9a1-1bea143b79fc",
+    "email": "kekfzz5yyz5@gmail.com",
+    "fullName": "Christopher Deleon",
+    "verified": true,
+    "banned": false,
+    "roles": [
+        "USER"
+    ],
+    "createdAt": "2026-06-18T18:06:11.333Z"
+}
+2026-06-18 18:06:11 INFO ================================================================================
+2026-06-18 18:06:11 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:11 INFO [32mpytest tests/api/test_auth_api.py::TestAuthAPI::test_register_user (teardown)[0m
+curl -X DELETE 'https://auth.dev-cinescope.coconutqa.ru/user/05809503-9d8f-423b-a9a1-1bea143b79fc' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA1OTcwLCJleHAiOjE3ODE4MDc3NzB9.Hn4j7WWdryRd_eE4hWe6FMXDujETtZmuJhxZvdlIGs0' \
+-H 'Cookie: refresh_token=cfb7ce99-75b6-41e6-bc4c-3ddea199cbb6' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:11 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:11 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+
+2026-06-18 18:06:11 INFO ================================================================================

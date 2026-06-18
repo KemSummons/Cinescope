@@ -1,0 +1,55 @@
+2026-06-18 18:06:57 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:57 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_non_existent_movie (setup)[0m
+curl -X POST 'https://auth.dev-cinescope.coconutqa.ru/login' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDEzLCJleHAiOjE3ODE4MDc4MTN9.UWwzDb3KcY9H6H24crBFmxgerfQ7GDlDt0wUoQzM610' \
+-H 'Cookie: refresh_token=401d90a6-d6e0-47bf-b3d6-d0ea302736a5' \
+-H 'Content-Length: 53' \
+-d '{"email": "api1@gmail.com", "password": "asdqwe123Q"}' 
+
+2026-06-18 18:06:57 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:57 INFO 	STATUS_CODE: [32m200[0m
+	DATA:
+{
+    "user": {
+        "id": "734964ec-4d6a-4789-839f-75797141e73e",
+        "email": "api1@gmail.com",
+        "fullName": "Жмышенко Валерий Альбертович",
+        "roles": [
+            "USER",
+            "ADMIN",
+            "SUPER_ADMIN"
+        ]
+    },
+    "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE3LCJleHAiOjE3ODE4MDc4MTd9.3xi-6szdlifK6cPeOAnylp3L1nB-xt5TVcubxxFxDf0",
+    "refreshToken": "f80cba01-ae96-47c0-927f-e2f053e2ed82",
+    "expiresIn": 1781807817752
+}
+2026-06-18 18:06:57 INFO ================================================================================
+2026-06-18 18:06:58 INFO 
+======================================== REQUEST ========================================
+2026-06-18 18:06:58 INFO [32mpytest tests/api/test_movie_api.py::TestNegativeMovieAPI::test_delete_non_existent_movie[0m
+curl -X DELETE 'https://api.dev-cinescope.coconutqa.ru/movies/999999999' \
+-H 'User-Agent: python-requests/2.32.5' \
+-H 'Accept-Encoding: gzip, deflate' \
+-H 'Accept: application/json' \
+-H 'Connection: keep-alive' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjczNDk2NGVjLTRkNmEtNDc4OS04MzlmLTc1Nzk3MTQxZTczZSIsImVtYWlsIjoiYXBpMUBnbWFpbC5jb20iLCJyb2xlcyI6WyJVU0VSIiwiQURNSU4iLCJTVVBFUl9BRE1JTiJdLCJ2ZXJpZmllZCI6dHJ1ZSwiaWF0IjoxNzgxODA2MDE3LCJleHAiOjE3ODE4MDc4MTd9.3xi-6szdlifK6cPeOAnylp3L1nB-xt5TVcubxxFxDf0' \
+-H 'Content-Length: 0' \
+
+2026-06-18 18:06:58 INFO 
+======================================== RESPONSE ========================================
+2026-06-18 18:06:58 INFO 	STATUS_CODE: [31m404[0m
+	DATA: [31m{
+    "message": "Фильм не найден",
+    "error": "Not Found",
+    "statusCode": 404
+}[0m
+2026-06-18 18:06:58 INFO ================================================================================
