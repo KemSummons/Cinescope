@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 @allure.epic("Тестирование транзакций")
 @allure.feature("Тестирование транзакций между счетами")
+@pytest.mark.db
 class TestAccountTransactionTemplate:
 
     @allure.story("Корректность перевода денег между двумя счетами")

@@ -255,7 +255,7 @@ def created_test_user(db_helper):
 @pytest.fixture(scope="function")
 def page():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch(headless=True)
         page = browser.new_page()
 
         yield page
